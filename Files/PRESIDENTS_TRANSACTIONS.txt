@@ -1,0 +1,15 @@
+O PRESIDENTS_CLIENTS.txt PRESIDENTS_COMMANDES.txt
++ David_Gagnon 555 Blvd_Universite
+= David_Gagnon Donald_Trump pepittes_de_chocolat 1 triple_chocolat 1 double_chocolat 1 &
+= Donald_Trump David_Gagnon beurre_d'arachide 1 chocolat 1 avoine 1 &
+? David_Gagnon
+? Donald_Trump
+$
+= David_Gagnon Donald_Trump avoine 10000 &
+? David_Gagnon
+$
+- David_Gagnon
+$
+- Donald_Trump
+$
+S PRESIDENTS_CLIENTS1.txt PRESIDENTS_COMMANDES1.txt

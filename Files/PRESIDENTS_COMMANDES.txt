@@ -1,0 +1,1414 @@
+Gerald_Ford
+Chester_Arthur
+chocolat 81
+double_chocolat 55
+triple_chocolat 8
+pepittes_de_chocolat 95
+beurre_d'arachide 39
+avoine 17
+&
+Franklin_Pierce
+James_Madison
+chocolat 10
+double_chocolat 10
+triple_chocolat 40
+&
+James_Garfield
+James_K._Polk
+chocolat 73
+double_chocolat 33
+triple_chocolat 17
+pepittes_de_chocolat 2
+&
+Richard_Nixon
+Thomas_Jefferson
+chocolat 28
+double_chocolat 73
+triple_chocolat 59
+pepittes_de_chocolat 22
+beurre_d'arachide 100
+&
+George_Bush
+Dwight_Eisenhower
+chocolat 49
+&
+Millard_Fillmore
+Benjamin_Harrison
+chocolat 27
+&
+Gerald_Ford
+Donald_Trump
+chocolat 76
+double_chocolat 25
+triple_chocolat 64
+pepittes_de_chocolat 14
+&
+Barack_Obama
+Theodore_Roosevelt
+chocolat 65
+double_chocolat 64
+triple_chocolat 3
+&
+Chester_Arthur
+George_Bush
+chocolat 52
+double_chocolat 37
+triple_chocolat 3
+pepittes_de_chocolat 21
+beurre_d'arachide 26
+avoine 42
+raisins 73
+&
+William_Henry_Harrison
+Grover_Cleveland
+chocolat 28
+double_chocolat 35
+triple_chocolat 87
+pepittes_de_chocolat 13
+&
+Theodore_Roosevelt
+Richard_Nixon
+chocolat 88
+double_chocolat 69
+triple_chocolat 63
+&
+Lyndon_Johnson
+Abraham_Lincoln
+chocolat 93
+&
+Thomas_Jefferson
+John_Quincy_Adams
+chocolat 22
+double_chocolat 22
+&
+Lyndon_Johnson
+Franklin_Pierce
+chocolat 98
+double_chocolat 43
+triple_chocolat 77
+&
+Dwight_Eisenhower
+Andrew_Johnson
+chocolat 44
+double_chocolat 44
+triple_chocolat 15
+&
+Rutherford_B._Hayes
+Abraham_Lincoln
+chocolat 78
+double_chocolat 100
+triple_chocolat 92
+pepittes_de_chocolat 63
+beurre_d'arachide 18
+avoine 75
+raisins 71
+&
+Andrew_Jackson
+Chester_Arthur
+chocolat 53
+&
+James_Monroe
+Theodore_Roosevelt
+chocolat 19
+double_chocolat 17
+triple_chocolat 44
+pepittes_de_chocolat 15
+beurre_d'arachide 79
+avoine 76
+raisins 49
+&
+James_Monroe
+Gerald_Ford
+chocolat 29
+double_chocolat 73
+triple_chocolat 11
+pepittes_de_chocolat 35
+beurre_d'arachide 47
+&
+Rutherford_B._Hayes
+Gerald_Ford
+chocolat 15
+double_chocolat 59
+triple_chocolat 36
+pepittes_de_chocolat 14
+beurre_d'arachide 6
+&
+Rutherford_B._Hayes
+George_Washington
+chocolat 86
+double_chocolat 2
+triple_chocolat 12
+pepittes_de_chocolat 53
+beurre_d'arachide 15
+&
+Thomas_Jefferson
+Millard_Fillmore
+chocolat 76
+double_chocolat 54
+&
+James_K._Polk
+Martin_Van_Buren
+chocolat 22
+double_chocolat 88
+triple_chocolat 31
+pepittes_de_chocolat 21
+&
+Andrew_Jackson
+Warren_Harding
+chocolat 70
+double_chocolat 38
+triple_chocolat 71
+pepittes_de_chocolat 33
+&
+Franklin_D._Roosevelt
+Chester_Arthur
+chocolat 27
+&
+George_W._Bush
+Chester_Arthur
+chocolat 4
+&
+George_Washington
+Rutherford_B._Hayes
+chocolat 77
+double_chocolat 41
+triple_chocolat 58
+pepittes_de_chocolat 51
+beurre_d'arachide 41
+avoine 52
+&
+James_Monroe
+James_Monroe
+chocolat 77
+double_chocolat 59
+triple_chocolat 15
+&
+Andrew_Johnson
+Franklin_Pierce
+chocolat 80
+double_chocolat 100
+triple_chocolat 70
+pepittes_de_chocolat 89
+beurre_d'arachide 61
+avoine 85
+raisins 46
+&
+Andrew_Johnson
+Zachary_Taylor
+chocolat 27
+double_chocolat 40
+triple_chocolat 26
+pepittes_de_chocolat 32
+beurre_d'arachide 47
+&
+John_Quincy_Adams
+Ulysses_S._Grant
+chocolat 97
+&
+Calvin_Coolidge
+John_Quincy_Adams
+chocolat 74
+double_chocolat 83
+triple_chocolat 44
+pepittes_de_chocolat 30
+beurre_d'arachide 50
+avoine 40
+&
+Thomas_Jefferson
+Chester_Arthur
+chocolat 41
+double_chocolat 75
+&
+James_Garfield
+Abraham_Lincoln
+chocolat 13
+double_chocolat 70
+triple_chocolat 79
+&
+Jimmy_Carter
+Ronald_Reagan
+chocolat 32
+&
+James_Buchanan
+John_Adams
+chocolat 32
+double_chocolat 52
+triple_chocolat 10
+pepittes_de_chocolat 35
+beurre_d'arachide 71
+avoine 10
+raisins 94
+&
+James_Monroe
+John_Adams
+chocolat 2
+double_chocolat 38
+triple_chocolat 97
+pepittes_de_chocolat 46
+beurre_d'arachide 64
+avoine 61
+&
+John_Tyler
+Andrew_Jackson
+chocolat 100
+double_chocolat 42
+triple_chocolat 10
+pepittes_de_chocolat 66
+beurre_d'arachide 86
+&
+Zachary_Taylor
+Zachary_Taylor
+chocolat 20
+double_chocolat 19
+triple_chocolat 41
+pepittes_de_chocolat 40
+beurre_d'arachide 14
+avoine 91
+raisins 66
+&
+Ronald_Reagan
+Rutherford_B._Hayes
+chocolat 27
+double_chocolat 19
+&
+Lyndon_Johnson
+Thomas_Jefferson
+chocolat 41
+double_chocolat 80
+triple_chocolat 87
+pepittes_de_chocolat 71
+beurre_d'arachide 96
+avoine 89
+raisins 27
+&
+Zachary_Taylor
+James_Garfield
+chocolat 69
+double_chocolat 21
+triple_chocolat 7
+pepittes_de_chocolat 92
+&
+Barack_Obama
+Abraham_Lincoln
+chocolat 100
+double_chocolat 9
+triple_chocolat 88
+&
+Calvin_Coolidge
+Warren_Harding
+chocolat 33
+double_chocolat 70
+triple_chocolat 57
+pepittes_de_chocolat 69
+beurre_d'arachide 59
+&
+George_Washington
+William_Howard_Taft
+chocolat 44
+double_chocolat 22
+triple_chocolat 34
+pepittes_de_chocolat 63
+beurre_d'arachide 4
+avoine 83
+raisins 54
+&
+Gerald_Ford
+John_Adams
+chocolat 89
+&
+Benjamin_Harrison
+Jimmy_Carter
+chocolat 76
+double_chocolat 17
+&
+William_Henry_Harrison
+Andrew_Johnson
+chocolat 36
+double_chocolat 51
+triple_chocolat 73
+pepittes_de_chocolat 52
+beurre_d'arachide 23
+avoine 79
+raisins 12
+&
+James_Buchanan
+Harry_Truman
+chocolat 23
+&
+John_F._Kennedy
+Chester_Arthur
+chocolat 84
+double_chocolat 57
+triple_chocolat 88
+pepittes_de_chocolat 82
+beurre_d'arachide 94
+&
+James_Buchanan
+Abraham_Lincoln
+chocolat 64
+double_chocolat 88
+triple_chocolat 62
+&
+James_Buchanan
+Woodrow_Wilson
+chocolat 72
+double_chocolat 79
+triple_chocolat 94
+&
+George_W._Bush
+Ulysses_S._Grant
+chocolat 29
+double_chocolat 7
+triple_chocolat 10
+pepittes_de_chocolat 98
+beurre_d'arachide 66
+avoine 83
+&
+William_McKinley
+James_K._Polk
+chocolat 99
+double_chocolat 27
+triple_chocolat 40
+pepittes_de_chocolat 39
+beurre_d'arachide 89
+&
+James_Garfield
+Richard_Nixon
+chocolat 22
+double_chocolat 90
+triple_chocolat 90
+&
+Herbert_Hoover
+Ronald_Reagan
+chocolat 16
+&
+Ronald_Reagan
+Dwight_Eisenhower
+chocolat 49
+double_chocolat 23
+triple_chocolat 20
+pepittes_de_chocolat 33
+beurre_d'arachide 55
+&
+Franklin_Pierce
+Gerald_Ford
+chocolat 97
+double_chocolat 7
+triple_chocolat 64
+pepittes_de_chocolat 88
+beurre_d'arachide 51
+avoine 92
+&
+Bill_Clinton
+Benjamin_Harrison
+chocolat 66
+double_chocolat 22
+triple_chocolat 70
+pepittes_de_chocolat 94
+&
+Thomas_Jefferson
+John_F._Kennedy
+chocolat 33
+&
+Bill_Clinton
+Andrew_Jackson
+chocolat 95
+double_chocolat 11
+triple_chocolat 18
+&
+George_Bush
+Barack_Obama
+chocolat 90
+double_chocolat 11
+triple_chocolat 57
+pepittes_de_chocolat 31
+beurre_d'arachide 49
+avoine 56
+&
+William_Howard_Taft
+James_K._Polk
+chocolat 57
+double_chocolat 17
+triple_chocolat 80
+&
+Harry_Truman
+Franklin_Pierce
+chocolat 56
+&
+Ronald_Reagan
+Lyndon_Johnson
+chocolat 16
+double_chocolat 85
+triple_chocolat 38
+pepittes_de_chocolat 36
+&
+Abraham_Lincoln
+Theodore_Roosevelt
+chocolat 72
+double_chocolat 1
+triple_chocolat 25
+pepittes_de_chocolat 68
+beurre_d'arachide 57
+avoine 75
+&
+John_Adams
+John_Adams
+chocolat 78
+double_chocolat 32
+triple_chocolat 34
+pepittes_de_chocolat 27
+beurre_d'arachide 23
+avoine 37
+&
+John_Tyler
+Lyndon_Johnson
+chocolat 35
+double_chocolat 40
+&
+Jimmy_Carter
+Andrew_Johnson
+chocolat 88
+double_chocolat 58
+triple_chocolat 22
+pepittes_de_chocolat 70
+beurre_d'arachide 46
+avoine 63
+raisins 54
+&
+Martin_Van_Buren
+Franklin_Pierce
+chocolat 50
+double_chocolat 27
+triple_chocolat 37
+pepittes_de_chocolat 14
+beurre_d'arachide 4
+&
+Martin_Van_Buren
+Gerald_Ford
+chocolat 2
+double_chocolat 70
+triple_chocolat 38
+pepittes_de_chocolat 87
+beurre_d'arachide 98
+avoine 93
+&
+George_W._Bush
+William_Henry_Harrison
+chocolat 65
+&
+William_McKinley
+Gerald_Ford
+chocolat 40
+double_chocolat 56
+triple_chocolat 65
+pepittes_de_chocolat 87
+beurre_d'arachide 46
+avoine 98
+raisins 68
+&
+Chester_Arthur
+George_Washington
+chocolat 57
+&
+Calvin_Coolidge
+Benjamin_Harrison
+chocolat 70
+double_chocolat 52
+triple_chocolat 44
+&
+Donald_Trump
+Gerald_Ford
+chocolat 15
+double_chocolat 83
+triple_chocolat 49
+pepittes_de_chocolat 49
+&
+Franklin_Pierce
+Richard_Nixon
+chocolat 36
+&
+Bill_Clinton
+Ronald_Reagan
+chocolat 95
+double_chocolat 94
+triple_chocolat 66
+pepittes_de_chocolat 26
+beurre_d'arachide 60
+avoine 77
+&
+John_F._Kennedy
+Woodrow_Wilson
+chocolat 92
+double_chocolat 40
+triple_chocolat 90
+pepittes_de_chocolat 22
+beurre_d'arachide 58
+avoine 80
+&
+Barack_Obama
+John_F._Kennedy
+chocolat 47
+double_chocolat 68
+&
+George_Washington
+Donald_Trump
+chocolat 75
+double_chocolat 55
+triple_chocolat 52
+pepittes_de_chocolat 44
+&
+George_Bush
+Jimmy_Carter
+chocolat 90
+double_chocolat 96
+triple_chocolat 9
+pepittes_de_chocolat 64
+beurre_d'arachide 96
+avoine 32
+&
+Bill_Clinton
+George_W._Bush
+chocolat 81
+double_chocolat 3
+triple_chocolat 53
+&
+Bill_Clinton
+John_Tyler
+chocolat 100
+double_chocolat 51
+triple_chocolat 35
+pepittes_de_chocolat 23
+beurre_d'arachide 99
+avoine 10
+&
+Ronald_Reagan
+George_Washington
+chocolat 34
+double_chocolat 91
+triple_chocolat 53
+&
+Donald_Trump
+Lyndon_Johnson
+chocolat 20
+double_chocolat 60
+triple_chocolat 34
+&
+Harry_Truman
+James_K._Polk
+chocolat 66
+double_chocolat 6
+triple_chocolat 35
+pepittes_de_chocolat 66
+&
+Andrew_Jackson
+Jimmy_Carter
+chocolat 9
+double_chocolat 46
+triple_chocolat 9
+pepittes_de_chocolat 85
+&
+Calvin_Coolidge
+John_Adams
+chocolat 65
+double_chocolat 91
+&
+James_K._Polk
+John_Quincy_Adams
+chocolat 82
+double_chocolat 89
+triple_chocolat 36
+pepittes_de_chocolat 78
+&
+James_Garfield
+Franklin_Pierce
+chocolat 27
+double_chocolat 31
+triple_chocolat 43
+pepittes_de_chocolat 35
+beurre_d'arachide 9
+&
+James_Monroe
+John_F._Kennedy
+chocolat 48
+double_chocolat 60
+triple_chocolat 66
+pepittes_de_chocolat 72
+beurre_d'arachide 95
+avoine 7
+&
+James_K._Polk
+James_Garfield
+chocolat 95
+double_chocolat 92
+triple_chocolat 72
+pepittes_de_chocolat 35
+beurre_d'arachide 46
+avoine 79
+&
+James_Buchanan
+William_Howard_Taft
+chocolat 52
+double_chocolat 23
+triple_chocolat 62
+pepittes_de_chocolat 34
+beurre_d'arachide 79
+&
+Grover_Cleveland
+James_Buchanan
+chocolat 79
+double_chocolat 91
+triple_chocolat 32
+&
+Barack_Obama
+John_Adams
+chocolat 80
+double_chocolat 52
+triple_chocolat 41
+pepittes_de_chocolat 56
+beurre_d'arachide 98
+avoine 32
+raisins 35
+&
+Millard_Fillmore
+James_Monroe
+chocolat 94
+double_chocolat 22
+triple_chocolat 75
+pepittes_de_chocolat 57
+beurre_d'arachide 75
+avoine 94
+&
+John_Tyler
+Ronald_Reagan
+chocolat 59
+double_chocolat 68
+triple_chocolat 21
+&
+William_Henry_Harrison
+William_Henry_Harrison
+chocolat 57
+double_chocolat 47
+triple_chocolat 40
+pepittes_de_chocolat 97
+beurre_d'arachide 52
+avoine 31
+&
+Martin_Van_Buren
+Franklin_Pierce
+chocolat 88
+double_chocolat 40
+triple_chocolat 9
+pepittes_de_chocolat 14
+beurre_d'arachide 30
+avoine 51
+&
+Chester_Arthur
+Harry_Truman
+chocolat 24
+&
+Thomas_Jefferson
+James_Madison
+chocolat 77
+double_chocolat 3
+triple_chocolat 97
+pepittes_de_chocolat 28
+beurre_d'arachide 88
+avoine 5
+raisins 64
+&
+John_F._Kennedy
+George_Bush
+chocolat 44
+double_chocolat 85
+triple_chocolat 36
+pepittes_de_chocolat 16
+&
+George_Bush
+Zachary_Taylor
+chocolat 29
+&
+William_Howard_Taft
+James_Buchanan
+chocolat 58
+double_chocolat 49
+triple_chocolat 97
+pepittes_de_chocolat 22
+&
+James_Buchanan
+Abraham_Lincoln
+chocolat 37
+double_chocolat 60
+triple_chocolat 71
+pepittes_de_chocolat 75
+beurre_d'arachide 50
+avoine 28
+raisins 58
+&
+Andrew_Johnson
+Grover_Cleveland
+chocolat 76
+double_chocolat 15
+triple_chocolat 28
+pepittes_de_chocolat 11
+&
+Thomas_Jefferson
+George_Washington
+chocolat 1
+double_chocolat 62
+triple_chocolat 41
+pepittes_de_chocolat 50
+beurre_d'arachide 75
+avoine 37
+raisins 26
+&
+William_Howard_Taft
+James_K._Polk
+chocolat 98
+double_chocolat 83
+triple_chocolat 20
+pepittes_de_chocolat 4
+beurre_d'arachide 2
+avoine 50
+raisins 19
+&
+Barack_Obama
+Lyndon_Johnson
+chocolat 73
+&
+Theodore_Roosevelt
+Andrew_Johnson
+chocolat 11
+double_chocolat 60
+&
+George_W._Bush
+James_Garfield
+chocolat 5
+&
+Lyndon_Johnson
+James_Madison
+chocolat 17
+double_chocolat 6
+triple_chocolat 36
+pepittes_de_chocolat 100
+beurre_d'arachide 16
+&
+Warren_Harding
+John_Quincy_Adams
+chocolat 4
+double_chocolat 64
+&
+Bill_Clinton
+William_Henry_Harrison
+chocolat 36
+double_chocolat 88
+triple_chocolat 25
+pepittes_de_chocolat 85
+beurre_d'arachide 58
+avoine 50
+&
+Grover_Cleveland
+Bill_Clinton
+chocolat 34
+double_chocolat 83
+triple_chocolat 82
+&
+Abraham_Lincoln
+Abraham_Lincoln
+chocolat 76
+&
+Jimmy_Carter
+Zachary_Taylor
+chocolat 55
+double_chocolat 78
+triple_chocolat 90
+&
+Richard_Nixon
+Bill_Clinton
+chocolat 8
+double_chocolat 46
+triple_chocolat 71
+pepittes_de_chocolat 53
+beurre_d'arachide 69
+&
+Millard_Fillmore
+Lyndon_Johnson
+chocolat 85
+double_chocolat 9
+triple_chocolat 92
+pepittes_de_chocolat 35
+&
+George_Bush
+James_Monroe
+chocolat 23
+double_chocolat 13
+triple_chocolat 20
+&
+James_Madison
+Franklin_Pierce
+chocolat 55
+double_chocolat 6
+triple_chocolat 7
+pepittes_de_chocolat 82
+beurre_d'arachide 12
+avoine 66
+raisins 61
+&
+Dwight_Eisenhower
+William_McKinley
+chocolat 41
+&
+Thomas_Jefferson
+William_Henry_Harrison
+chocolat 5
+double_chocolat 57
+triple_chocolat 86
+pepittes_de_chocolat 17
+beurre_d'arachide 51
+&
+Calvin_Coolidge
+John_Adams
+chocolat 68
+double_chocolat 35
+triple_chocolat 12
+pepittes_de_chocolat 33
+beurre_d'arachide 42
+avoine 11
+&
+James_Garfield
+Thomas_Jefferson
+chocolat 50
+double_chocolat 8
+triple_chocolat 94
+pepittes_de_chocolat 34
+beurre_d'arachide 41
+avoine 95
+raisins 17
+&
+Andrew_Johnson
+Theodore_Roosevelt
+chocolat 15
+double_chocolat 87
+triple_chocolat 39
+pepittes_de_chocolat 13
+beurre_d'arachide 55
+avoine 32
+raisins 65
+&
+Richard_Nixon
+Franklin_Pierce
+chocolat 44
+double_chocolat 66
+triple_chocolat 51
+&
+Jimmy_Carter
+Franklin_D._Roosevelt
+chocolat 17
+&
+George_W._Bush
+Calvin_Coolidge
+chocolat 72
+double_chocolat 93
+triple_chocolat 75
+pepittes_de_chocolat 90
+beurre_d'arachide 67
+&
+Lyndon_Johnson
+John_Adams
+chocolat 38
+double_chocolat 96
+triple_chocolat 21
+pepittes_de_chocolat 26
+beurre_d'arachide 48
+avoine 50
+raisins 67
+&
+Chester_Arthur
+Andrew_Jackson
+chocolat 45
+double_chocolat 17
+triple_chocolat 74
+pepittes_de_chocolat 9
+&
+Thomas_Jefferson
+James_Garfield
+chocolat 84
+double_chocolat 69
+triple_chocolat 41
+pepittes_de_chocolat 54
+beurre_d'arachide 39
+avoine 41
+raisins 46
+&
+Ulysses_S._Grant
+Chester_Arthur
+chocolat 96
+double_chocolat 67
+triple_chocolat 65
+pepittes_de_chocolat 2
+beurre_d'arachide 68
+avoine 16
+&
+John_Tyler
+Chester_Arthur
+chocolat 42
+double_chocolat 42
+triple_chocolat 74
+pepittes_de_chocolat 9
+beurre_d'arachide 58
+avoine 36
+&
+Franklin_D._Roosevelt
+Herbert_Hoover
+chocolat 95
+double_chocolat 49
+triple_chocolat 11
+&
+Jimmy_Carter
+James_Madison
+chocolat 7
+double_chocolat 68
+&
+Harry_Truman
+Gerald_Ford
+chocolat 33
+double_chocolat 32
+triple_chocolat 90
+pepittes_de_chocolat 74
+beurre_d'arachide 96
+avoine 44
+raisins 47
+&
+George_W._Bush
+William_McKinley
+chocolat 40
+double_chocolat 60
+triple_chocolat 77
+pepittes_de_chocolat 44
+&
+Lyndon_Johnson
+Dwight_Eisenhower
+chocolat 4
+double_chocolat 19
+&
+Andrew_Johnson
+Donald_Trump
+chocolat 73
+double_chocolat 18
+&
+Martin_Van_Buren
+Zachary_Taylor
+chocolat 53
+double_chocolat 94
+triple_chocolat 80
+pepittes_de_chocolat 7
+beurre_d'arachide 13
+avoine 70
+raisins 88
+&
+Ulysses_S._Grant
+Andrew_Jackson
+chocolat 34
+double_chocolat 9
+&
+Bill_Clinton
+Gerald_Ford
+chocolat 83
+double_chocolat 11
+triple_chocolat 10
+pepittes_de_chocolat 28
+beurre_d'arachide 83
+&
+Zachary_Taylor
+Dwight_Eisenhower
+chocolat 56
+double_chocolat 3
+triple_chocolat 76
+pepittes_de_chocolat 48
+beurre_d'arachide 63
+avoine 91
+raisins 37
+&
+James_Buchanan
+Millard_Fillmore
+chocolat 64
+double_chocolat 31
+triple_chocolat 55
+pepittes_de_chocolat 58
+beurre_d'arachide 87
+&
+William_McKinley
+Lyndon_Johnson
+chocolat 62
+double_chocolat 93
+&
+James_Monroe
+Andrew_Johnson
+chocolat 26
+double_chocolat 2
+triple_chocolat 96
+pepittes_de_chocolat 69
+&
+Theodore_Roosevelt
+Dwight_Eisenhower
+chocolat 10
+double_chocolat 52
+triple_chocolat 79
+pepittes_de_chocolat 66
+&
+Jimmy_Carter
+Jimmy_Carter
+chocolat 6
+double_chocolat 46
+triple_chocolat 59
+pepittes_de_chocolat 1
+&
+Millard_Fillmore
+James_Garfield
+chocolat 89
+double_chocolat 83
+triple_chocolat 1
+pepittes_de_chocolat 70
+beurre_d'arachide 16
+avoine 39
+&
+Dwight_Eisenhower
+Chester_Arthur
+chocolat 70
+double_chocolat 83
+triple_chocolat 74
+pepittes_de_chocolat 71
+beurre_d'arachide 37
+avoine 68
+raisins 53
+&
+Lyndon_Johnson
+John_F._Kennedy
+chocolat 78
+double_chocolat 81
+triple_chocolat 75
+pepittes_de_chocolat 40
+&
+Calvin_Coolidge
+James_Garfield
+chocolat 65
+double_chocolat 57
+&
+Jimmy_Carter
+William_Henry_Harrison
+chocolat 99
+double_chocolat 21
+triple_chocolat 33
+pepittes_de_chocolat 82
+beurre_d'arachide 2
+&
+Warren_Harding
+Barack_Obama
+chocolat 5
+double_chocolat 48
+triple_chocolat 54
+pepittes_de_chocolat 52
+beurre_d'arachide 37
+&
+Barack_Obama
+Barack_Obama
+chocolat 12
+&
+John_Quincy_Adams
+George_Washington
+chocolat 35
+double_chocolat 60
+triple_chocolat 35
+pepittes_de_chocolat 48
+&
+Bill_Clinton
+Franklin_D._Roosevelt
+chocolat 44
+double_chocolat 50
+triple_chocolat 59
+pepittes_de_chocolat 15
+beurre_d'arachide 62
+avoine 46
+raisins 19
+&
+Woodrow_Wilson
+John_Tyler
+chocolat 23
+&
+Andrew_Johnson
+William_McKinley
+chocolat 17
+double_chocolat 76
+triple_chocolat 37
+pepittes_de_chocolat 53
+beurre_d'arachide 34
+avoine 66
+raisins 37
+&
+Woodrow_Wilson
+Ulysses_S._Grant
+chocolat 43
+double_chocolat 100
+triple_chocolat 63
+pepittes_de_chocolat 28
+&
+Harry_Truman
+William_Howard_Taft
+chocolat 55
+double_chocolat 12
+triple_chocolat 9
+pepittes_de_chocolat 17
+beurre_d'arachide 27
+avoine 20
+&
+James_Buchanan
+John_Adams
+chocolat 33
+&
+John_Tyler
+Franklin_D._Roosevelt
+chocolat 13
+double_chocolat 52
+triple_chocolat 84
+pepittes_de_chocolat 93
+beurre_d'arachide 24
+avoine 1
+raisins 12
+&
+Warren_Harding
+George_Bush
+chocolat 71
+&
+Franklin_Pierce
+Lyndon_Johnson
+chocolat 45
+double_chocolat 7
+triple_chocolat 84
+pepittes_de_chocolat 14
+&
+Richard_Nixon
+Donald_Trump
+chocolat 86
+double_chocolat 95
+triple_chocolat 16
+pepittes_de_chocolat 34
+&
+Donald_Trump
+Ulysses_S._Grant
+chocolat 62
+double_chocolat 91
+&
+James_Madison
+Franklin_Pierce
+chocolat 83
+double_chocolat 12
+triple_chocolat 50
+pepittes_de_chocolat 16
+beurre_d'arachide 86
+avoine 58
+&
+Rutherford_B._Hayes
+Donald_Trump
+chocolat 64
+double_chocolat 51
+triple_chocolat 15
+pepittes_de_chocolat 78
+beurre_d'arachide 62
+&
+Andrew_Jackson
+John_Tyler
+chocolat 79
+double_chocolat 90
+triple_chocolat 26
+pepittes_de_chocolat 22
+&
+John_F._Kennedy
+Andrew_Johnson
+chocolat 96
+double_chocolat 69
+triple_chocolat 37
+pepittes_de_chocolat 64
+&
+Bill_Clinton
+Lyndon_Johnson
+chocolat 98
+double_chocolat 80
+&
+Grover_Cleveland
+Harry_Truman
+chocolat 2
+&
+Barack_Obama
+Benjamin_Harrison
+chocolat 35
+double_chocolat 8
+triple_chocolat 70
+pepittes_de_chocolat 81
+beurre_d'arachide 57
+avoine 39
+&
+Andrew_Jackson
+James_Buchanan
+chocolat 36
+double_chocolat 35
+triple_chocolat 91
+pepittes_de_chocolat 32
+beurre_d'arachide 53
+&
+John_Tyler
+William_Henry_Harrison
+chocolat 25
+double_chocolat 53
+triple_chocolat 72
+&
+Bill_Clinton
+Ronald_Reagan
+chocolat 69
+&
+Ronald_Reagan
+Dwight_Eisenhower
+chocolat 53
+double_chocolat 35
+&
+Ulysses_S._Grant
+Franklin_D._Roosevelt
+chocolat 40
+double_chocolat 35
+triple_chocolat 63
+pepittes_de_chocolat 28
+beurre_d'arachide 64
+avoine 48
+&
+Ronald_Reagan
+Franklin_D._Roosevelt
+chocolat 44
+double_chocolat 23
+&
+Ronald_Reagan
+Zachary_Taylor
+chocolat 75
+double_chocolat 89
+triple_chocolat 58
+pepittes_de_chocolat 69
+beurre_d'arachide 20
+avoine 8
+&
+Dwight_Eisenhower
+Chester_Arthur
+chocolat 89
+double_chocolat 18
+triple_chocolat 83
+pepittes_de_chocolat 98
+beurre_d'arachide 28
+&
+Chester_Arthur
+George_Bush
+chocolat 62
+double_chocolat 43
+triple_chocolat 16
+pepittes_de_chocolat 17
+&
+William_Henry_Harrison
+Andrew_Johnson
+chocolat 12
+double_chocolat 82
+&
+Lyndon_Johnson
+James_Madison
+chocolat 23
+double_chocolat 88
+triple_chocolat 15
+pepittes_de_chocolat 29
+beurre_d'arachide 73
+&
+Millard_Fillmore
+Dwight_Eisenhower
+chocolat 85
+double_chocolat 40
+triple_chocolat 55
+pepittes_de_chocolat 42
+beurre_d'arachide 1
+&
+John_Adams
+James_Garfield
+chocolat 79
+double_chocolat 29
+triple_chocolat 11
+pepittes_de_chocolat 96
+beurre_d'arachide 29
+avoine 36
+raisins 88
+&
+Bill_Clinton
+Grover_Cleveland
+chocolat 77
+double_chocolat 93
+triple_chocolat 67
+&
+Theodore_Roosevelt
+John_Adams
+chocolat 43
+&
+Benjamin_Harrison
+William_Henry_Harrison
+chocolat 33
+&
+John_Tyler
+Donald_Trump
+chocolat 6
+double_chocolat 45
+triple_chocolat 10
+pepittes_de_chocolat 12
+beurre_d'arachide 93
+&
+Andrew_Jackson
+James_Garfield
+chocolat 32
+double_chocolat 35
+triple_chocolat 68
+&
+James_Madison
+William_McKinley
+chocolat 11
+&
+William_Henry_Harrison
+William_Howard_Taft
+chocolat 93
+double_chocolat 82
+triple_chocolat 89
+&
+Abraham_Lincoln
+Andrew_Jackson
+chocolat 43
+double_chocolat 36
+triple_chocolat 2
+pepittes_de_chocolat 66
+beurre_d'arachide 42
+avoine 15
+&
+Benjamin_Harrison
+George_W._Bush
+chocolat 17
+double_chocolat 78
+triple_chocolat 35
+pepittes_de_chocolat 52
+beurre_d'arachide 12
+avoine 87
+&
+Gerald_Ford
+George_Bush
+chocolat 68
+double_chocolat 61
+triple_chocolat 73
+pepittes_de_chocolat 54
+beurre_d'arachide 69
+avoine 51
+&
+James_Garfield
+James_Buchanan
+chocolat 39
+double_chocolat 71
+triple_chocolat 18
+pepittes_de_chocolat 7
+beurre_d'arachide 77
+avoine 66
+&
