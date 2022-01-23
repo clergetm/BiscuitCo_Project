@@ -146,6 +146,8 @@
     <ClCompile Include="ListeCommandes.cpp" />
     <ClCompile Include="ListeCookies.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Main_Commande.cpp" />
+    <ClCompile Include="NoeudCommandes.cpp" />
     <ClCompile Include="NoeudCookie.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +157,7 @@
     <ClInclude Include="ListeClients.h" />
     <ClInclude Include="ListeCommandes.h" />
     <ClInclude Include="ListeCookies.h" />
+    <ClInclude Include="NoeudCommandes.h" />
     <ClInclude Include="NoeudCookie.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

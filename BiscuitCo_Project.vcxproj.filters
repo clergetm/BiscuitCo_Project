@@ -57,6 +57,12 @@
     <ClCompile Include="NoeudCookie.cpp">
       <Filter>Source Files\Cookies</Filter>
     </ClCompile>
+    <ClCompile Include="NoeudCommandes.cpp">
+      <Filter>Source Files\Commandes</Filter>
+    </ClCompile>
+    <ClCompile Include="Main_Commande.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ListeClients.h">
@@ -79,6 +85,9 @@
     </ClInclude>
     <ClInclude Include="NoeudCookie.h">
       <Filter>Header Files\Cookies</Filter>
+    </ClInclude>
+    <ClInclude Include="NoeudCommandes.h">
+      <Filter>Header Files\Commandes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
