@@ -7,9 +7,15 @@ Cookie::Cookie() : nom(""), total(0) {}
 
 /**
 * Constructeur de Cookie
-* @param le nom du Cookie
+* @param _nomCookie : le nom du Cookie
 */
-Cookie::Cookie(string _nom) : nom(_nom), total(0) {}
+Cookie::Cookie(string _nomCookie) : nom(_nomCookie), total(0) {}
+/**
+* Constructeur de Cookie
+* @param _nomCookie :  le nom du Cookie
+* @param _quantite :  la quantite de ce cookie
+*/
+Cookie::Cookie(string _nomCookie,short int _quantite) : nom(_nomCookie), total(_quantite) {}
 
 /**
 * Destructeur de Cookie
@@ -30,25 +36,25 @@ short int Cookie::getTotal() { return this->total; }
 
 /**
 * Setter de Nom
-* @param _nom string
+* @param  _nomCookie : le nom du Cookie
 */
-void Cookie::setNom(string _nom) { this->nom = _nom; }
+void Cookie::setNom(string _nomCookie) { this->nom = _nomCookie; }
 
 /**
 * Méthode permettant d’augmenter le Total
-* @param _ajout short int
+* @param _ajout : short int
 */
-void Cookie::AjouterTotal(short int _ajout) { this->total += _ajout; }
+void Cookie::AugmenterTotal(short int _ajout) { this->total += _ajout; }
 
 /**
 * Méthode permettant de réduire le Total
-* @param _retrait short int
+* @param _retrait : short int
 */
-void Cookie::RetirerTotal(short int _retrait) { this->total -= _retrait; }
+void Cookie::ReduireTotal(short int _retrait) { this->total -= _retrait; }
 
 /**
 * Méthode comparant deux Cookies
-* @param un second Cookie
+* @param _cookie : un second Cookie
 * @return true si les deux Cookies ont un nom et un total identiques, false sinon
 */
 bool Cookie::EstEquivalent(Cookie _cookie) {
