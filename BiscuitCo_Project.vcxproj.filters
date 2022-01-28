@@ -13,81 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\Clients">
-      <UniqueIdentifier>{1f92d8ec-701e-441c-a39c-cf37ff168cce}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Clients">
-      <UniqueIdentifier>{527ca7b9-a847-4d06-a097-2af3519deed5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Commandes">
-      <UniqueIdentifier>{50154ceb-9287-4c6d-bf2a-40a47d936c6d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Cookies">
-      <UniqueIdentifier>{4909436a-9a9e-4eaf-b7b6-d67de3400940}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Commandes">
-      <UniqueIdentifier>{e6ae1531-9ff1-4368-9906-1dd36501e03e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Cookies">
-      <UniqueIdentifier>{e8a0eedf-70e1-47fa-9435-9004b632c82d}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ListeClients.cpp">
-      <Filter>Source Files\Clients</Filter>
+    <ClCompile Include="BiscuitCo.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Client.cpp">
-      <Filter>Source Files\Clients</Filter>
-    </ClCompile>
-    <ClCompile Include="Cookie.cpp">
-      <Filter>Source Files\Cookies</Filter>
-    </ClCompile>
-    <ClCompile Include="Commande.cpp">
-      <Filter>Source Files\Commandes</Filter>
-    </ClCompile>
-    <ClCompile Include="ListeCookies.cpp">
-      <Filter>Source Files\Cookies</Filter>
-    </ClCompile>
-    <ClCompile Include="ListeCommandes.cpp">
-      <Filter>Source Files\Commandes</Filter>
-    </ClCompile>
-    <ClCompile Include="NoeudCookie.cpp">
-      <Filter>Source Files\Cookies</Filter>
-    </ClCompile>
-    <ClCompile Include="NoeudCommandes.cpp">
-      <Filter>Source Files\Commandes</Filter>
-    </ClCompile>
-    <ClCompile Include="Main_Commande.cpp">
+    <ClCompile Include="Storage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ListeClients.h">
-      <Filter>Header Files\Clients</Filter>
+    <ClInclude Include="BiscuitCo.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ListeCommandes.h">
-      <Filter>Header Files\Commandes</Filter>
-    </ClInclude>
-    <ClInclude Include="ListeCookies.h">
-      <Filter>Header Files\Cookies</Filter>
-    </ClInclude>
-    <ClInclude Include="Client.h">
-      <Filter>Header Files\Clients</Filter>
-    </ClInclude>
-    <ClInclude Include="Commande.h">
-      <Filter>Header Files\Commandes</Filter>
-    </ClInclude>
-    <ClInclude Include="Cookie.h">
-      <Filter>Header Files\Cookies</Filter>
-    </ClInclude>
-    <ClInclude Include="NoeudCookie.h">
-      <Filter>Header Files\Cookies</Filter>
-    </ClInclude>
-    <ClInclude Include="NoeudCommandes.h">
-      <Filter>Header Files\Commandes</Filter>
+    <ClInclude Include="Storage.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
