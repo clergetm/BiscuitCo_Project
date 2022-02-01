@@ -184,7 +184,7 @@ struct Commande {
 
 		// Ajout des achats de cette commande
 		for (fixerTete(); estDansListe();suivant()) {
-			resultat += valeurCourante()->toString() + '\n';
+			resultat += achatCourant()->toString() + '\n';
 		}
 
 		// Ajout du caractère de fin de Commande
