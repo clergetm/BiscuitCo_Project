@@ -233,6 +233,7 @@ public:
 	BiscuitCo();
 	~BiscuitCo();
 
-
+	void ajouterCommande(string, Commande&); // Ajouter la Commander passée en paramètre à la liste des commandes du client
+	void supprimerCommande(string, Commande&);
 };
 
