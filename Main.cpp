@@ -26,7 +26,7 @@ void test_Commande() {
 
     /*cout << "Test for" << endl;
     for (commande1.fixerTete(); commande1.estDansListe();commande1.suivant()) {
-        cout << commande1.valeurCourante()->toString() << endl;
+        cout << commande1.achatCourant()->toString() << endl;
     }*/
 
     cout << "\n" << endl;
