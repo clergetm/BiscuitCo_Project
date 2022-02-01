@@ -24,17 +24,27 @@ void test_Commande() {
     cout << "Commande 3 achats" << endl;
     cout << commande1.toString() << endl;
 
+    /*cout << "Test for" << endl;
+    for (commande1.fixerTete(); commande1.estDansListe();commande1.suivant()) {
+        cout << commande1.valeurCourante()->toString() << endl;
+    }*/
+
+    cout << "\n" << endl;
+
     ////Censé supprimer chocolat
-    //cout << "Suppression chocolat" << endl;
-    //commande1.fixerTete();
+    commande1.fixerTete();
+    cout << "Suppression chocolat" << endl;
+    commande1.supprimerAchat();
+    //cout << "Suppression vanille" << endl;
     //commande1.supprimerAchat();
     //cout << commande1.toString() << endl;
 
-    //cout << "\n" << endl;
+    cout << "\n" << endl;
 
-    //cout << "Suppression complete" << endl;
-    //commande1.supprimerTousAchats();
-    //cout << commande1.toString() << endl;
+    ////Censé supprimer tous les achats
+    cout << "Suppression complete" << endl;
+    commande1.viderListeAchats();
+    cout << commande1.toString() << endl;
 }
 
 int main() {

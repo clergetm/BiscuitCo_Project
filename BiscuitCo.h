@@ -108,10 +108,11 @@ struct Commande {
 	}
 
 	// Supprimer un Achat à la position courante
+	// Code provenant du cours
 	void supprimerAchat() {
 		
 		// Sauvegarde du pointeur suivant
-		Achat* courant = courantAchat;
+		Achat* courant = achatCourant();
 		// Suppression de l’élément
 		courantAchat->achatSuivant = courant->achatSuivant;
 
@@ -125,27 +126,44 @@ struct Commande {
 
 		// Partie avec la liste des cookies manquantes
 	}
+	
+	// Supprimer tous les achats de la commande
+	// Code provenant du cours
+	void viderListeAchats() {
 
-	void supprimerTousAchats() {
-		courantAchat = teteAchat->achatSuivant;
-		while (this->estDansListe()) {
-			supprimerAchat();
-			courantAchat = courantAchat->achatSuivant;
+		// On parcourt la liste et on supprime l’achat courant à chaque itération
+		while (teteAchat->achatSuivant != nullptr) {
+			courantAchat = teteAchat->achatSuivant;
+			teteAchat->achatSuivant = courantAchat->achatSuivant;
+			delete courantAchat;
 		}
+		courantAchat = queueAchat = teteAchat;
 	}
 
 
+	// Return true si le pointeur courant est à l’intérieur de la liste
+	// Code provenant du cours
 	bool estDansListe() const {
-		return (courantAchat != nullptr);
+		return (courantAchat != nullptr) && courantAchat->achatSuivant != nullptr;
 	}
 
+	// Transporte le pointeur courant à la tête de la liste
+	// Code provenant du cours
 	void fixerTete() {
 		courantAchat = teteAchat;
 	}
 
+	// Transporte le pointeur courant à l’Achat suivant dans la liste
+	// Code provenant du cours
 	void suivant() {
 		if (courantAchat != nullptr)
 			courantAchat = courantAchat->achatSuivant;
+	}
+
+	// Retourne l’achat qui est actuellement pointé
+	// Code provenant du cours
+	Achat* achatCourant() const {
+		return courantAchat->achatSuivant;
 	}
 
 	/**
@@ -165,11 +183,8 @@ struct Commande {
 
 
 		// Ajout des achats de cette commande
-		courantAchat = teteAchat->achatSuivant;
-		while (this->estDansListe()) {
-			resultat += courantAchat->toString() + '\n';
-
-			courantAchat = courantAchat->achatSuivant;
+		for (fixerTete(); estDansListe();suivant()) {
+			resultat += valeurCourante()->toString() + '\n';
 		}
 
 		// Ajout du caractère de fin de Commande
@@ -218,9 +233,6 @@ public:
 	BiscuitCo();
 	~BiscuitCo();
 
-	// Tete Queue et Courant pour Client
-	// Tete Queue et Courant pour Cookies
-	// Tete Queue et Courant pour Achat
 
 };
 
