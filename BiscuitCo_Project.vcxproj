@@ -139,26 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Client.cpp" />
-    <ClCompile Include="Commande.cpp" />
-    <ClCompile Include="Cookie.cpp" />
-    <ClCompile Include="ListeClients.cpp" />
-    <ClCompile Include="ListeCommandes.cpp" />
-    <ClCompile Include="ListeCookies.cpp" />
+    <ClCompile Include="BiscuitCo.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Main_Commande.cpp" />
-    <ClCompile Include="NoeudCommandes.cpp" />
-    <ClCompile Include="NoeudCookie.cpp" />
+    <ClCompile Include="Storage.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Client.h" />
-    <ClInclude Include="Commande.h" />
-    <ClInclude Include="Cookie.h" />
-    <ClInclude Include="ListeClients.h" />
-    <ClInclude Include="ListeCommandes.h" />
-    <ClInclude Include="ListeCookies.h" />
-    <ClInclude Include="NoeudCommandes.h" />
-    <ClInclude Include="NoeudCookie.h" />
+    <ClInclude Include="BiscuitCo.h" />
+    <ClInclude Include="Storage.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
