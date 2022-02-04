@@ -58,6 +58,7 @@ void BiscuitCo::ajouterCommande(string _nomClient, Commande& _commande) {
 //	/* } // endelse */
 //}
 
+
 bool BiscuitCo::trouverClient(string _nomClient) {
 
 	

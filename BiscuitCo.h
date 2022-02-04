@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include "Storage.h"
+
 using namespace std;
 /**
 * Structure de Achat
@@ -372,7 +374,9 @@ private:
 	Cookie* teteCookie;
 	Cookie* queueCookie;
 	Cookie* courantCookie;
+
 public:
+	Storage storage;
 	BiscuitCo();
 	~BiscuitCo();
 	bool trouverClient(string);
