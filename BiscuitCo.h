@@ -346,24 +346,45 @@ struct Client {
 */
 struct Cookie {
 	// Structure Cookie
-	string nom;
+	string nomCookie;
 	short int total;
 
 	// Structure Noeud-Cookie
 	Cookie* cookieSuivant;
+
+	Cookie() {
+		this->nomCookie = "";
+		this->total = 0;
+		this->cookieSuivant = nullptr;
+	}
+
+	Cookie(string _nom, short int _total=0, Cookie* _suivant = nullptr) {
+		this->nomCookie = _nom;
+		this->total = _total;
+		this->cookieSuivant = _suivant;
+	}
 };
 
 class BiscuitCo
 {
 private:
 	Client* listeClients;
-	Cookie* listeCookies;
-	//Storage storage;
+	Cookie* teteCookie;
+	Cookie* queueCookie;
+	Cookie* courantCookie;
 public:
 	BiscuitCo();
 	~BiscuitCo();
 	bool trouverClient(string);
 	void ajouterCommande(string, Commande&); // Ajouter la Commander passée en paramètre à la liste des commandes du client
 	void supprimerCommande(string, Commande&);
-};
 
+	bool trouverCookie(string);
+	void fixerTeteCookie();
+	bool estDansListeCookie();
+	Cookie* cookieSuivant();
+
+	void fixerTeteClient();
+	bool estDansListeClient();
+	Client* clientSuivant();
+};

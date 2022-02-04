@@ -5,6 +5,8 @@ using namespace std;
 
 BiscuitCo::BiscuitCo() {
 	cout << "Construction BiscuitCo sans paramètre" << endl;
+	// Initialisation de la liste des cookies
+	this->teteCookie = this->queueCookie = this->courantCookie = new Cookie();
 }
 
 BiscuitCo::~BiscuitCo() {
@@ -56,7 +58,7 @@ void BiscuitCo::ajouterCommande(string _nomClient, Commande& _commande) {
 //	/* } // endelse */
 //}
 
-bool BiscuitCo::trouverClient(string _nomClient, Client& _client) {
+bool BiscuitCo::trouverClient(string _nomClient) {
 
 	
 	for (fixerTeteClient(); estDansListeClient(); clientSuivant()) {
@@ -71,4 +73,15 @@ bool BiscuitCo::trouverClient(string _nomClient, Client& _client) {
 	}
 
 	
+}
+
+bool BiscuitCo::trouverCookie(string _nomCookie) {
+
+	for (fixerTeteCookie(); estDansListeCookie(); cookieSuivant()) {
+		Cookie* tmp = CookieCourant();
+		if (tmp->nomCookie == _nomCookie) {
+			return true;
+		}
+	}
+	return false;
 }
