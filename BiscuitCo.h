@@ -203,11 +203,141 @@ struct Client {
 	short int numero;
 	string rue;
 
+
 	// Structure Noeud-Client
 	Client* clientSuivant;
 
 	// Liste Commande 
-	Commande* teteCommande, queueCommande, courantCommande;
+	Commande* teteCommande;
+	Commande* queueCommande;
+	Commande* courantCommande;
+
+
+	Client() {
+		teteCommande = queueCommande = courantCommande = new Commande;
+	}
+
+	/**
+	* Constructeur de client
+	* @param _nom
+	* @param _numero
+	* @param _rue
+	* @param _suivant: pointeur vers le client suivant
+	*/
+
+	Client(string _nom, int _numero, string _rue) {
+		nom = _nom;
+		numero = _numero;
+		rue = _rue;
+		teteCommande = queueCommande = courantCommande = new Commande();
+	}
+
+	//Destructeur de Client 
+	~Client() {
+		// Tant que la tete n’est pas vidée, on détruit l’élément suivant
+		while (teteCommande != nullptr) {
+			courantCommande = teteCommande;
+			teteCommande = teteCommande->commandeSuivante;
+			delete courantCommande;
+		}
+	}
+
+	/**
+	* Inserer une Commande à la fin de la liste des Commandes
+	* @param _nomCookie : le nom du cookie
+	* @param _quantiteCookie : la quantite achetée
+	*/
+	void insererCommande(string _source, string _destinataire) {
+		queueCommande = queueCommande->commandeSuivante = new Commande(_source, _destinataire);
+
+		
+	}
+
+	// Supprimer une commande à la position courante
+	// Code provenant du cours
+	void supprimerCommande() {
+
+		// Sauvegarde du pointeur suivant
+		Commande* courant = commandeCourant();
+		// Suppression de l’élément
+		courantCommande->commandeSuivante = courant->commandeSuivante;
+
+		if (queueCommande == courant) {
+			// C’est le dernier élément supprimé, mise à jour de queueCommande
+			queueCommande = courantCommande;
+		}
+
+		// Suppression du pointeur créé
+		delete courant;
+
+		
+	}
+
+	void viderListeCommandes() {
+
+		// On parcourt la liste et on supprime la commande courant à chaque itération
+		while (teteCommande->commandeSuivante != nullptr) {
+			courantCommande = teteCommande->commandeSuivante;
+			teteCommande->commandeSuivante = courantCommande->commandeSuivante;
+			delete courantCommande;
+		}
+		courantCommande = queueCommande = teteCommande;
+	}
+
+
+	// Return true si le pointeur courant est à l’intérieur de la liste
+	// Code provenant du cours
+	bool estDansListe() const {
+		return (courantCommande != nullptr) && courantCommande->commandeSuivante != nullptr;
+	}
+
+	// Transporte le pointeur courant à la tête de la liste
+	// Code provenant du cours
+	void fixerTete() {
+		courantCommande = teteCommande;
+	}
+
+	// Transporte le pointeur courant à la commande suivant dans la liste
+	// Code provenant du cours
+	void suivant() {
+		if (courantCommande != nullptr)
+			courantCommande = courantCommande->commandeSuivante;
+	}
+
+	// Retourne la commande qui est actuellement pointé
+	// Code provenant du cours
+	Commande* commandeCourant() const {
+		return courantCommande->commandeSuivante;
+	}
+
+	/**
+	* Methode toString de Client retournant toutes les informations d’un client :
+	*  - nom
+	*  - numero
+	*  - rue
+	*  - toString() de chaque Commande
+	*  - &
+	* @return resultat : du client dans un string
+	*/
+	string toString() {
+
+		// Ajout du nom du Client source
+		string resultat = nom + '\n';
+		// Ajout du numero du Client destinataire
+		resultat += numero + '\n';
+		// Ajout de la rue du Client destinataire
+		resultat += rue + '\n';
+
+		// Ajout des commandes de ce client
+		for (fixerTete(); estDansListe(); suivant()) {
+			resultat += commandeCourant()->toString() + '\n';
+		}
+
+		// Ajout du caractère de fin de client
+		resultat += "& \n";
+		return resultat;
+	}
+
 };
 
 
@@ -232,7 +362,7 @@ private:
 public:
 	BiscuitCo();
 	~BiscuitCo();
-
+	bool trouverClient(string);
 	void ajouterCommande(string, Commande&); // Ajouter la Commander passée en paramètre à la liste des commandes du client
 	void supprimerCommande(string, Commande&);
 };

@@ -55,3 +55,20 @@ void BiscuitCo::ajouterCommande(string _nomClient, Commande& _commande) {
 //	cout << "Aucune action n’a été effectuée." << endl;
 //	/* } // endelse */
 //}
+
+bool BiscuitCo::trouverClient(string _nomClient, Client& _client) {
+
+	
+	for (fixerTeteClient(); estDansListeClient(); clientSuivant()) {
+		Client* temp = clientCourant();
+		if (temp->nom == _nomClient) {
+			return true;
+		}
+		else {
+			return false;
+		}
+
+	}
+
+	
+}
