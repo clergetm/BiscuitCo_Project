@@ -86,3 +86,9 @@ bool BiscuitCo::trouverCookie(string _nomCookie) {
 	}
 	return false;
 }
+
+Client* BiscuitCo::clientCourant() {
+
+	return courantClient->clientSuivant;
+
+}
