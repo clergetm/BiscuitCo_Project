@@ -378,7 +378,6 @@ private:
 	Cookie* courantCookie;
 
 public:
-	Storage storage;
 	BiscuitCo();
 	~BiscuitCo();
 	bool trouverClient(string);

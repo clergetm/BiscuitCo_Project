@@ -76,16 +76,16 @@ bool BiscuitCo::trouverClient(string _nomClient) {
 	
 }
 
-bool BiscuitCo::trouverCookie(string _nomCookie) {
-
-	for (fixerTeteCookie(); estDansListeCookie(); cookieSuivant()) {
-		Cookie* tmp = CookieCourant();
-		if (tmp->nomCookie == _nomCookie) {
-			return true;
-		}
-	}
-	return false;
-}
+//bool BiscuitCo::trouverCookie(string _nomCookie) {
+//
+//	for (fixerTeteCookie(); estDansListeCookie(); cookieSuivant()) {
+//		Cookie* tmp = CookieCourant();
+//		if (tmp->nomCookie == _nomCookie) {
+//			return true;
+//		}
+//	}
+//	return false;
+//}
 
 Client* BiscuitCo::clientCourant() {
 

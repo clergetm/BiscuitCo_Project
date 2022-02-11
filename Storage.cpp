@@ -1,10 +1,13 @@
 #include "Storage.h"
 #include <iostream>
+#include <string>
 #include <fstream>
+
 using namespace std;
 
-
-std::ifstream entree; //fichier d'entrée
+Storage::Storage(BiscuitCo* _entreprise) {
+	entreprise = _entreprise;
+}
 
 //Lecture de la liste Presidents_Clients
 void Storage::liste_clients(){
@@ -33,35 +36,48 @@ void Storage::liste_clients(){
 
 void Storage::liste_commandes() {
 
-	ifstream fin("Files/PRESIDENTS_COMMANDES.txt"); //Lecture
-	cout << "Contenu du fichier : \n";
-	char co;
-	while (fin.get(co))
-		cout << co;
+		string achat[2];
+		string temp;
+		string source;
+		string destinataire;
+		ifstream fin("Files/PRESIDENTS_COMMANDES.txt");
 
-	cout << "\n **** Fin du fichier. **** \n";
+		while (fin >> source){
+			fin >> destinataire;
+			if (entreprise->trouverClient(source) && entreprise->trouverClient(destinataire)) {
+				Commande* commande = new Commande(source, destinataire);
 
-	fin.close();
-}
+				string courant = "";
+				while ( courant != "&") {
+					//Achat
+					//Lire nom
+					short count = 0;
+					while (getline(fin, courant, ' ')) {
+						achat[count] = courant;
+						count++;
+					}
+					commande->insererAchat(achat[0],stoi(achat[1]));
+					}
+				cout << "toto" << endl;
+				cout << commande->toString();
 
-void Storage::liste_transactions() {
-
-	ifstream fin("Files/PRESIDENTS_TRANSACTIONS.txt"); //Lecture
-	cout << "Contenu du fichier : \n";
-	
-	string source;
-	string destination;
-	string achat;
-
-	while (fin >> source) {
-		fin >> destination;
-		while (fin >> achat && achat != "&") { 
-			//Il faut séparer achat pour avoir le nom du cookie et la quantité
-			achat
+				}
 		}
-		cout << nom + "\n";
-
-	cout << "\n **** Fin du fichier. **** \n";
-
-	fin.close();
+				
 }
+
+
+//void Storage::liste_transactions() {
+//
+//	ifstream fin("Files/PRESIDENTS_TRANSACTIONS.txt"); //Lecture
+//	cout << "Contenu du fichier : \n";
+//	char co;
+//	while (fin.get(co))
+//		cout << co;
+//	
+//		cout << nom + "\n";
+//
+//	cout << "\n **** Fin du fichier. **** \n";
+//
+//	fin.close();
+//}
