@@ -92,3 +92,24 @@ Client* BiscuitCo::clientCourant() {
 	return courantClient->clientSuivant;
 
 }
+
+void BiscuitCo::insererClient(string _nomClient, short int _numero, string _rue) {
+
+	queueClient = queueClient->clientSuivant = new Client(_nomClient, _numero, _rue);
+
+}
+
+void BiscuitCo::supprimerClient(string _nomClient) {
+
+	if (trouverClient(_nomClient) == true) {
+		Client* courant = clientCourant();
+		courantClient->clientSuivant = courant->clientSuivant;
+		if (queueClient == courant) {
+			queueClient = courantClient;
+		}
+		delete courant;
+
+		supprimerCommande(_nomClient);
+	}
+
+}
