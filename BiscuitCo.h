@@ -1,8 +1,6 @@
 #pragma once
 #include <string>
 #include <iostream>
-#include "Storage.h"
-
 using namespace std;
 /**
 * Structure de Achat
@@ -385,12 +383,22 @@ public:
 	void ajouterCommande(string, Commande&); // Ajouter la Commander passée en paramètre à la liste des commandes du client
 	void supprimerCommande(string, Commande&);
 	Client* clientCourant();
-	bool trouverCookie(string);
+
 	void fixerTeteCookie();
-	bool estDansListeCookie();
-	Cookie* cookieSuivant();
+	bool estDansListeCookie() const;
+	void cookieSuivant();
+	Cookie* cookieCourant() const;
+	Cookie* meilleurCookie();
+	bool trouverCookie(string);
 
 	void fixerTeteClient();
-	bool estDansListeClient();
-	Client* clientSuivant();
+	bool estDansListeClient() const;
+	void clientSuivant();
+	void insererClient(string, short int, string);
+	void supprimerClient(string);
+	void liste_clients();
+	void liste_commandes();
+	void liste_transactions();
+
+	string* split_str_to_achat(string);
 };

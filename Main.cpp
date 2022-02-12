@@ -53,9 +53,8 @@ int main() {
    // cout << "\n \n" << endl;
    // test_Commande();
     BiscuitCo entreprise;
-    Storage storage = Storage(&entreprise);
-        // storage.liste_clients();
-     storage.liste_commandes();
+    //entreprise.liste_clients();
+    entreprise.liste_commandes();
     //storage.liste_transactions();
        
     system("pause");

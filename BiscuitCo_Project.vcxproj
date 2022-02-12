@@ -141,11 +141,9 @@
   <ItemGroup>
     <ClCompile Include="BiscuitCo.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Storage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BiscuitCo.h" />
-    <ClInclude Include="Storage.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
