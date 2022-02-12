@@ -32,7 +32,7 @@ void test_Commande() {
     cout << "\n" << endl;
 
     ////Censé supprimer chocolat
-    commande1.fixerTete();
+    commande1.fixerTeteAchat();
     cout << "Suppression chocolat" << endl;
     commande1.supprimerAchat();
     //cout << "Suppression vanille" << endl;
@@ -47,16 +47,61 @@ void test_Commande() {
     cout << commande1.toString() << endl;
 }
 
+void test_liste_clients() {
+    BiscuitCo entreprise;
+    entreprise.liste_clients();
+
+    for (entreprise.fixerTeteClient(); entreprise.estDansListeClient(); entreprise.clientSuivant()) {
+        cout << entreprise.clientCourant()->toString() << endl;
+    }
+}
+
+void test_liste_commandes() {
+    BiscuitCo entreprise;
+    entreprise.liste_clients();
+    entreprise.liste_commandes();
+
+    for (entreprise.fixerTeteClient(); entreprise.estDansListeClient(); entreprise.clientSuivant()) {
+        cout << entreprise.clientCourant()->toString() << endl;
+    }
+}
+
+void test_get_meilleur_Cookie() {
+    BiscuitCo entreprise;
+    entreprise.liste_clients();
+    entreprise.liste_commandes();
+
+    entreprise.meilleurCookie();
+
+    entreprise.supprimerCookie("chocolat", 10350);
+    entreprise.trouverCookie("chocolat");
+    cout << entreprise.cookieCourant()->toString() << endl;
+
+    entreprise.meilleurCookie();
+
+
+}
+
 int main() {
      
-   // test_Achat();
-   // cout << "\n \n" << endl;
-   // test_Commande();
-    BiscuitCo entreprise;
+   //test_Achat();
+   // 
+   //cout << "\n \n" << endl;
+   //test_Commande();
+   // 
+   //cout << "\n \n" << endl;
+   //test_liste_clients();
+   // 
+   //cout << "\n \n" << endl;
+   //test_liste_commandes();
+    test_get_meilleur_Cookie();
+    //BiscuitCo entreprise;
     //entreprise.liste_clients();
-    entreprise.liste_commandes();
-    //storage.liste_transactions();
+    //entreprise.liste_commandes();
+    //entreprise.liste_transactions();
        
+
+
     system("pause");
     return 0;
 }

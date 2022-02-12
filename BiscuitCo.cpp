@@ -4,87 +4,65 @@
 #include <fstream>
 using namespace std;
 
+// Constructeur par defaut de BiscuitCo
 BiscuitCo::BiscuitCo() {
 	cout << "Construction BiscuitCo sans paramètre" << endl;
 	// Initialisation de la liste des cookies
 	this->teteCookie = this->queueCookie = this->courantCookie = new Cookie();
+
+	// Initialisation de la liste des clients
+	this->teteClient = this->queueClient = this->courantClient = new Client();
 }
 
+// Destructeur de BiscuitCo
 BiscuitCo::~BiscuitCo() {
 	cout << "Destruction BiscuitCo" << endl;
-}
 
-/** 
-* Ajouter une commande au client indiqué, 
-* Modifier les informations sur les cookies achetés
-* @param _client : le client 
-* @param _commande : la commande à ajouter
-*/
-void BiscuitCo::ajouterCommande(string _nomClient, Commande& _commande) {
-
-	// Mettre le pointeur sur le bon client
-	/*if(this->trouver(_nomClient)) {*/
-
-		// Inserer la commande dans la liste des commandes du client
-		/*this->clientCourant().insererCommande(_commande);*/
-
-
-		// Ajouter les informations des achats de cette commande à la liste des cookies
-	for (_commande.fixerTete(); _commande.estDansListe(); _commande.suivant()) {
-		Achat* cookie = _commande.achatCourant();
-		string nomCookie = cookie->nomCookie;
-		short int quantiteCookie = cookie->quantiteCookie;
-		delete cookie;
-
-		/*// Insertion des données côté liste des Cookies*/
-
+	// Destruction Cookies
+	while (teteCookie != nullptr) {
+		courantCookie = teteCookie;
+		teteCookie = teteCookie->cookieSuivant;
+		delete courantCookie;
 	}
 
-	/* } else { // endif */
-		cout << "Le client "+ _nomClient + "ne fait pas partie des membres enregistrés." << endl; 
-		cout << "La commande n’a pas été sauvegardée." << endl;
-	/* } // endelse */
+	// Destruction Clients
+	while (teteClient != nullptr) {
+		courantClient = teteClient;
+		teteClient = teteClient->clientSuivant;
+		delete courantClient;
+	}
 }
 
-//void supprimerCommande(string _nomClient, Commande* _commande) {
-//	// Mettre le pointeur sur le bon client
-//	/*if(this->trouver(_nomClient)) {*/
-//
-//		
-//		/*// Suppression des données côté liste de Cookies*/
-//
-//	/* } else { // endif */
-//	cout << "Le client " + _nomClient + "ne fait pas partie des membres enregistrés." << endl;
-//	cout << "Aucune action n’a été effectuée." << endl;
-//	/* } // endelse */
-//}
 
 
+/// CLIENTS //////////////////////////////////////////////////
+
+/**
+* Fonction return True si le client existe,
+* S’il existe, le pointeur clientCourant pointera sur ce client
+* @param _nomclient : le nom du client à trouver
+*/
 bool BiscuitCo::trouverClient(string _nomClient) {
-
-	
+	// Il faut parcourir toute la liste
 	for (fixerTeteClient(); estDansListeClient(); clientSuivant()) {
 		Client* temp = clientCourant();
 		if (temp->nom == _nomClient) {
 			return true;
 		}
 	}
-	return false;
-
-	
+	return false; // Le client cherché ne se trouve pas dans la liste
 }
 
 // Transporte le pointeur courant à la tête de la liste
 // Code provenant du cours
 void BiscuitCo::fixerTeteClient() {
 	courantClient = teteClient;
-
 }
 
 // Return true si le pointeur courant est à l’intérieur de la liste
 // Code provenant du cours
 bool BiscuitCo::estDansListeClient() const {
-	return (courantClient != nullptr) && this->courantClient-> clientSuivant != nullptr;
+	return (courantClient != nullptr) && (courantClient->clientSuivant != nullptr);
 }
 
 // Transporte le pointeur courant au cookie suivant dans la liste
@@ -94,6 +72,80 @@ void BiscuitCo::clientSuivant() {
 		courantClient = courantClient->clientSuivant;
 }
 
+// Retourne le client actuellement pointé
+// Code provenant du cours
+Client* BiscuitCo::clientCourant() const {
+	return courantClient->clientSuivant;
+}
+
+/**
+* Inserer un Client à la fin de la liste des Clients
+* @param _nomClient : le nom du client
+* @param _numero : le numéro de rue du client
+* @param _rue : la rue du client
+*/
+void BiscuitCo::insererClient(string _nomClient, short int _numero, string _rue) {
+	queueClient = queueClient->clientSuivant = new Client(_nomClient, _numero, _rue);
+}
+
+/**
+* Supprimer un Client de la liste des Clients
+* @param _nomClient : le nom du client
+*/
+void BiscuitCo::supprimerClient(string _nomClient) {
+
+	// Il faut d’abord trouver son emplacement dans la liste des Clients
+	if (trouverClient(_nomClient) == true) {
+		Client* courant = clientCourant();
+
+		// Suppression de ses commandes
+		// Mettre à jour les totaux des cookies
+		for (courant->fixerTeteCommande(); courant->estDansListeCommande(); courant->commandeSuivante()) {
+			supprimerCommandeCookies(courant->commandeCourante());
+		}
+
+		courant->viderListeCommandes();
+		//Suppression du Client
+		courantClient->clientSuivant = courant->clientSuivant;
+		if (queueClient == courant) {
+			queueClient = courantClient;
+		}
+		delete courant;
+	}
+}
+
+/// COMMANDES ////////////////////////////////////////////////
+
+/**
+* Augmenter les totaux des cookies en fonctions des achats de la commande
+* @param _commande : la commande à ajouter
+*/
+void BiscuitCo::ajouterCommandeCookies(Commande* _commande) {
+	for (_commande->fixerTeteAchat(); _commande->estDansListeAchat(); _commande->achatSuivant()) {
+		Achat* achat = _commande->achatCourant();
+		insererCookie(achat->nomCookie, achat->quantiteCookie);
+	}
+}
+
+/**
+* Réduire les totaux des cookies en fonctions des achats de la commande
+* @param _commande : la commande à retirer
+*/
+void BiscuitCo::supprimerCommandeCookies( Commande* _commande) {
+	for (_commande->fixerTeteAchat(); _commande->estDansListeAchat(); _commande->achatSuivant()) {
+		Achat* achat = _commande->achatCourant();
+		supprimerCookie(achat->nomCookie, achat->quantiteCookie);
+	}
+}
+
+/// COOKIES //////////////////////////////////////////////////
+
+
+/**
+* Fonction return True si le cookie existe,
+* S’il existe, le pointeur cookiecourante pointera sur ce cookie
+* @param _nomCookie : le nom du cookie à trouver
+*/
 bool BiscuitCo::trouverCookie(string _nomCookie) {
 
 	for (fixerTeteCookie(); estDansListeCookie(); cookieSuivant()) {
@@ -105,45 +157,16 @@ bool BiscuitCo::trouverCookie(string _nomCookie) {
 	return false;
 }
 
-Client* BiscuitCo::clientCourant() {
-
-	return courantClient->clientSuivant;
-
+// Transporte le pointeur courant à la tête de la liste
+// Code provenant du cours
+void BiscuitCo::fixerTeteCookie() {
+	courantCookie = teteCookie;
 }
-
-void BiscuitCo::insererClient(string _nomClient, short int _numero, string _rue) {
-
-	queueClient = queueClient->clientSuivant = new Client(_nomClient, _numero, _rue);
-
-}
-
-void BiscuitCo::supprimerClient(string _nomClient) {
-
-	if (trouverClient(_nomClient) == true) {
-		Client* courant = clientCourant();
-		courantClient->clientSuivant = courant->clientSuivant;
-		if (queueClient == courant) {
-			queueClient = courantClient;
-		}
-		delete courant;
-
-		supprimerCommande(_nomClient);
-	}
-
-}
-
-
 
 // Return true si le pointeur courant est à l’intérieur de la liste
 // Code provenant du cours
 bool BiscuitCo::estDansListeCookie() const {
 	return (courantCookie != nullptr) && this->courantCookie->cookieSuivant != nullptr;
-}
-
-// Transporte le pointeur courant à la tête de la liste
-// Code provenant du cours
-void BiscuitCo::fixerTeteCookie() {
-	courantCookie = teteCookie;
 }
 
 // Transporte le pointeur courant au cookie suivant dans la liste
@@ -153,95 +176,157 @@ void BiscuitCo::cookieSuivant() {
 		courantCookie = courantCookie->cookieSuivant;
 }
 
-
+// Retourne le cookie actuellement pointé
+// Code provenant du cours
 Cookie* BiscuitCo::cookieCourant() const {
 	return this->courantCookie->cookieSuivant;
 }
 
-Cookie* BiscuitCo::meilleurCookie() {
-	Cookie* meilleur = nullptr;
+/**
+* Augmenter le total du cookie déjà existant ou en créer un nouveau
+* @param _nomCookie : le nom du Cookie
+* @param _quantiteCookie : la quantite de ce Cookie
+*/
+void BiscuitCo::insererCookie(string _nomCookie, short int _quantiteCookie) {
 
-	for (fixerTeteCookie(); estDansListeCookie(); cookieSuivant())
+	// Le Cookie existe déjà
+	if (trouverCookie(_nomCookie)) {
+		cookieCourant()->AugmenterTotal(_quantiteCookie);
 
-	return nullptr;
+	// Il faut créer un nouveau Cookie
+	} else {
+		queueCookie = queueCookie->cookieSuivant = new Cookie(_nomCookie, _quantiteCookie);
+	}
 }
 
+/**
+* Reduire le total du cookie déjà existant et le supprimer s’il le total est nul
+* @param _nomCookie : le nom du Cookie
+* @param _quantiteCookie : la quantite de ce Cookie
+*/
+void BiscuitCo::supprimerCookie(string _nomCookie, short int _quantiteCookie) {
+
+	// Le Cookie existe
+	if (trouverCookie(_nomCookie)) {
+		cookieCourant()->ReduireTotal(_quantiteCookie);
+	}
+	
+	// Il n’y a plus de Cookie commandé
+	if (cookieCourant()->total <= 0) {
+		Cookie* courant = cookieCourant();
+		courantCookie->cookieSuivant = courant->cookieSuivant;
+		if (queueCookie == courant) {
+			queueCookie = courantCookie;
+		}
+		delete courant;
+	}
+}
+
+// Methode permettant d’afficher sur la console le Cookie avec le total le plus élevé
+void BiscuitCo::meilleurCookie() {
+
+	// Initialisation du point de départ
+	fixerTeteCookie();
+	Cookie* meilleur = cookieCourant();
+
+	// Trouver le cookie avec le total le plus élevé
+	for (fixerTeteCookie(); estDansListeCookie(); cookieSuivant()) {
+		if (cookieCourant()->total > meilleur->total) {
+			meilleur = cookieCourant();
+		}
+	}
+	
+	// Afficher ses informations
+	cout << "Le cookie le plus populaire est le suivant :" << endl;
+	cout << meilleur->toString() << endl;
+}
+
+/// STORAGE //////////////////////////////////////////////////
 
 
+// Methode permettant d’intégrer à l’object BiscuitCo les informations sur les clients
 void BiscuitCo::liste_clients() {
 
 	ifstream fin("Files/PRESIDENTS_CLIENTS.txt"); //Lecture
-	cout << "Contenu du fichier : \n";
 
+	// Variables composant un client
 	string nom;
 	string rue;
 	short int num;
 
+	// Tant que l’on peut recupérer les informations
 	while (fin >> nom) {
 		fin >> num >> rue;
-		cout << nom + "\n";
-
 		//Créer un client
-	//	Client client = client(nom, numero, rue);
-	//	ajouterClient(client);
-
+		insererClient(nom, num, rue);
 	}
 
-	cout << "\n **** Fin du fichier. **** \n";
-
+	// Fermer la lecture du fichier
 	fin.close();
 }
 
+// Méthode permettant d’intégrer aux clients les commandes enregistrés sur le document txt
 void BiscuitCo::liste_commandes() {
 
-	string achat[2];
-	string temp;
-	string source;
-	string destinataire;
+	// Lecture du fichiers Commandes
 	ifstream fin("Files/PRESIDENTS_COMMANDES.txt");
 
+	// Une commande est composé de ces variables
+	string source;
+	string destinataire;
+
+	// Un achat est composé de ces variables
 	string nomCookie;
 	short int quantiteCookie;
 
+	string courant = "";
+
+	// Tant que l’on peut récuperer des informations sur le fichier
 	while (fin >> source){
 		fin >> destinataire;
-		//if (trouverClient(source) && trouverClient(destinataire)) {
-			Commande* commande = new Commande(source, destinataire);
+		// Vérifier si les clients existent avant d’effectuer la commande
+		if (trouverClient(destinataire) && trouverClient(source)) {
 
-			string courant = "";
+			Client* _clientSource = clientCourant();
+			// Création d’une commande 
+			_clientSource->insererCommande(source, destinataire);
 
-			// Si ce n'est pas & c'est que nous avons un achat
-		
+			Commande* current = _clientSource->commandeCourante();
+
+			// Il faut maintenant lire chaque achat et l’ajouter à la commande
+			// Les achats sont listés sur plusieurs lignes, jusqu’au "&"
+			// la variable courant nous permet de faire cette vérification
+
+			// On récupère une première fois la ligne suivant le destinataire
 			fin >> courant;
 			while (courant != "&") {
 				// Si ce n'étais pas "&" c'était alors le nom d'un cookie.
 				nomCookie = courant;
+
+				// Sur cette même ligne nous récupérons la quantité indiquée
 				fin >> quantiteCookie;
 
-				commande->insererAchat(nomCookie,quantiteCookie);
+				// Nous pouvons insérer un achat composé de ces deux informations
+				current->insererAchat(nomCookie,quantiteCookie);
 
 				// Changer de ligne
 				fin >> courant;
-			}
-			cout << commande->toString();
+			} 
 
-			//}
+			//Maintenant que la commande est créé, il faut ajouter chaque achat dans la liste des cookies.
+			ajouterCommandeCookies( current);
+		} else {
+			cout << "Au moins un des clients de cette commande ne fait pas partie des membres enregistrés." << endl;
+			cout << "La commande n’a pas été sauvegardée." << endl;
+		}
 	}
 
+	// Fermer la lecture du fichier
+	fin.close();
 }
 
-string* BiscuitCo::split_str_to_achat(string s) {
-	int i = 0;
-	string res[2];
-	while (s[i] != ' ') {
- 		i++;
-	}
-	res[0] = s.substr(0, i);
-	res[1] = s.substr(i + 1, s.length());
 
-	return res;
-}
-
+// Méthode permettant d’intégrer les transactions effectues dans le document txt
 //void BiscuitCo::liste_transactions() {
 //
 //	ifstream fin("Files/PRESIDENTS_TRANSACTIONS.txt"); //Lecture
