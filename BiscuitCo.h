@@ -405,40 +405,40 @@ public:
 	~BiscuitCo();
 
 	// Clients
-	bool trouverClient(string);
-	void fixerTeteClient();
+	bool trouverClient(string); // Trouver un client dans la liste client et retourne un false ou true
+	void fixerTeteClient(); 
 	bool estDansListeClient() const;
-	void clientSuivant();
-	Client* clientCourant() const;
+	void clientSuivant(); 
+	Client* clientCourant() const; 
 
-	void insererClient(string, short int, string);
-	void supprimerClient(string);
-	void supprimerClientDest(string);
+	void insererClient(string, short int, string); // Ajouter un nouveau client à la liste avec nom, numéro et rue
+	void supprimerClient(string); // Supprime le client et ses commandes sources 
+	void supprimerClientDest(string); // Supprime le client et ses commandes destinataire
 	
 
 	// Commandes
-	void ajouterCommandeCookies(Commande*); // Ajouter la Commander passée en paramètre à la liste des commandes du client
-	void supprimerCommandeCookies(Commande*);
+	void ajouterCommandeCookies(Commande*); // Ajouter la Commande passée en paramètre à la liste des commandes du client
+	void supprimerCommandeCookies(Commande*); // Réduire le nombre de cookie de chaque type de cookie
 	Commande* verifierClientsEtCreerCommande(string,string);
 
 
 	// Cookies
-	bool trouverCookie(string);
-	void fixerTeteCookie();
+	bool trouverCookie(string); // Trouver si le cookie existe, le pointeur cookiecourant pointera sur cookie
+	void fixerTeteCookie(); 
 	bool estDansListeCookie() const;
 	void cookieSuivant();
 	Cookie* cookieCourant() const;
 
-	void insererCookie(string, short int);
-	void supprimerCookie(string, short int);
+	void insererCookie(string, short int); // Permet d'augmenter le nombre de cookie déjà commandé si le type de cookie existe, sinon on créer un nouveau type
+	void supprimerCookie(string, short int); // Permet de supprimer le nombre de cookie dans un type
 
-	void meilleurCookie();
+	void meilleurCookie(); // Permet d'afficher le type de cookie avec le total le plus élevé dans une commande
 
 	// Storage
-	void ouverture_clients(string);
-	void ouverture_commandes(string);
-	void ouverture_transactions(string);
+	void ouverture_clients(string); // Permet la lecture des clients
+	void ouverture_commandes(string); // Permet la lecture des commandes
+	void ouverture_transactions(string); // Permet la lecture des transactions
 
-	void sauvegarde_clients(string);
-	void sauvegarde_commandes(string);
+	void sauvegarde_clients(string); // Permet la sauvegarde des clients
+	void sauvegarde_commandes(string); // Permet la sauvegarde des commandes
 };
