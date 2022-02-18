@@ -177,7 +177,7 @@ struct Commande {
 		}
 
 		// Ajout du caractère de fin de Commande
-		resultat += "& \n";
+		resultat += "&";
 		return resultat;
 	}
 
@@ -309,25 +309,27 @@ struct Client {
 	*  - &
 	* @return resultat : du client dans un string
 	*/
-	string toString() {
-
-		// Ajout du nom du Client source
-		string resultat = nom + '\n';
-		// Ajout du numero du Client destinataire
-		resultat += to_string(numero)+ '\n';
-		// Ajout de la rue du Client destinataire
-		resultat += rue + '\n';
+	string toStringCommandes() {
+		string resultat;
 
 		// Ajout des commandes de ce client
 		for (fixerTeteCommande(); estDansListeCommande(); commandeSuivante()) {
 			resultat += commandeCourante()->toString() + '\n';
 		}
-
-		// Ajout du caractère de fin de client
-		resultat += "& \n";
 		return resultat;
 	}
 
+	string toString() {
+
+		// Ajout du nom du Client source
+		string resultat = nom + '\n';
+		// Ajout du numero du Client destinataire
+		resultat += to_string(numero) + '\n';
+		// Ajout de la rue du Client destinataire
+		resultat += rue + '\n';
+		
+		return resultat;
+	}
 };
 
 /**
@@ -409,6 +411,7 @@ public:
 
 	void insererClient(string, short int, string);
 	void supprimerClient(string);
+	void supprimerClientDest(string);
 	
 
 	// Commandes
@@ -430,7 +433,10 @@ public:
 	void meilleurCookie();
 
 	// Storage
-	void liste_clients(string);
-	void liste_commandes(string);
-	void liste_transactions(string);
+	void ouverture_clients(string);
+	void ouverture_commandes(string);
+	void ouverture_transactions(string);
+
+	void sauvegarde_clients(string);
+	void sauvegarde_commandes(string);
 };

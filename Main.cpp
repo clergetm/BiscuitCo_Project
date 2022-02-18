@@ -52,7 +52,7 @@ void test_Commande() {
 
 void test_liste_clients() {
     BiscuitCo entreprise;
-    entreprise.liste_clients(CLIENT);
+    entreprise.ouverture_clients(CLIENT);
 
     for (entreprise.fixerTeteClient(); entreprise.estDansListeClient(); entreprise.clientSuivant()) {
         cout << entreprise.clientCourant()->toString() << endl;
@@ -61,8 +61,8 @@ void test_liste_clients() {
 
 void test_liste_commandes() {
     BiscuitCo entreprise;
-    entreprise.liste_clients(CLIENT);
-    entreprise.liste_commandes(COMMANDE);
+    entreprise.ouverture_clients(CLIENT);
+    entreprise.ouverture_commandes(COMMANDE);
 
     for (entreprise.fixerTeteClient(); entreprise.estDansListeClient(); entreprise.clientSuivant()) {
         cout << entreprise.clientCourant()->toString() << endl;
@@ -71,8 +71,8 @@ void test_liste_commandes() {
 
 void test_get_meilleur_Cookie() {
     BiscuitCo entreprise;
-    entreprise.liste_clients(CLIENT);
-    entreprise.liste_commandes(COMMANDE);
+    entreprise.ouverture_clients(CLIENT);
+    entreprise.ouverture_commandes(COMMANDE);
 
     entreprise.meilleurCookie();
 
@@ -83,29 +83,43 @@ void test_get_meilleur_Cookie() {
     cout << cookie->toString() << endl;
 
     entreprise.meilleurCookie();
-
-
 }
+
+void test_sauvegardeClient() {
+    BiscuitCo entreprise;
+    entreprise.ouverture_clients(CLIENT);
+
+    entreprise.sauvegarde_clients("TESTSAVECLIENTS.txt");
+}
+
+void test_sauvegardeCommande() {
+    BiscuitCo entreprise;
+    entreprise.ouverture_clients(CLIENT);
+    entreprise.ouverture_commandes(COMMANDE);
+
+    entreprise.sauvegarde_commandes("TESTSAVECOMMANDES.txt");
+}
+
 
 int main() {
      
-   //test_Achat();
-   // 
-   //cout << "\n \n" << endl;
-   //test_Commande();
-   // 
-   //cout << "\n \n" << endl;
-   //test_liste_clients();
-   // 
-   //cout << "\n \n" << endl;
-   //test_liste_commandes();
-    test_get_meilleur_Cookie();
+    //test_Achat();
+    // 
+    //cout << "\n \n" << endl;
+    //test_Commande();
+    // 
+    //cout << "\n \n" << endl;
+    //test_liste_clients();
+    // 
+    //cout << "\n \n" << endl;
+    //test_liste_commandes();
+    //test_get_meilleur_Cookie();
     //BiscuitCo entreprise;
-    //entreprise.liste_clients();
-    //entreprise.liste_commandes();
+    //entreprise.ouverture_clients();
+    //entreprise.ouverture_commandes();
     //entreprise.liste_transactions();
-       
-
+    //test_sauvegardeClient();
+    //test_sauvegardeCommande();
 
     system("pause");
     return 0;
