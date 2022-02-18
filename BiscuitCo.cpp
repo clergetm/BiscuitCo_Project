@@ -95,7 +95,7 @@ void BiscuitCo::insererClient(string _nomClient, short int _numero, string _rue)
 void BiscuitCo::supprimerClient(string _nomClient) {
 
 	// Il faut d’abord trouver son emplacement dans la liste des Clients
-	if (trouverClient(_nomClient) == true) {
+	if (trouverClient(_nomClient)) {
 		Client* courant = clientCourant();
 
 		// Suppression de ses commandes
@@ -136,6 +136,30 @@ void BiscuitCo::supprimerCommandeCookies( Commande* _commande) {
 		Achat* achat = _commande->achatCourant();
 		supprimerCookie(achat->nomCookie, achat->quantiteCookie);
 	}
+}
+
+/**
+* Vérification de l'existence des clients dans la liste chaînée et création de la nouvelle commande.
+* Si les clients n'existent pas, return null
+* @param _source : le nom du client à la source de la commande
+* @param _destinataire : le nom du client destinataire de la commande
+*/
+Commande* BiscuitCo::verifierClientsEtCreerCommande(string _source, string _destinataire) {
+
+	// On vérifier que les deux clients existent
+	if (trouverClient(_source) && trouverClient(_destinataire)) {
+
+		Client* _clientSource = clientCourant();
+		// Création d’une commande 
+		_clientSource->insererCommande(_source, _destinataire);
+
+		// Retourne cette nouvelle commande
+		return _clientSource->commandeCourante();
+	} 
+
+	cout << "Au moins un des clients de cette commande ne fait pas partie des membres enregistrés." << endl;
+	cout << "La commande n’a pas été sauvegardée." << endl;
+	return NULL;
 }
 
 /// COOKIES //////////////////////////////////////////////////
@@ -245,9 +269,9 @@ void BiscuitCo::meilleurCookie() {
 
 
 // Methode permettant d’intégrer à l’object BiscuitCo les informations sur les clients
-void BiscuitCo::liste_clients() {
+void BiscuitCo::liste_clients(string _fichierClient) {
 
-	ifstream fin("Files/PRESIDENTS_CLIENTS.txt"); //Lecture
+	ifstream fin(_fichierClient); //Lecture
 
 	// Variables composant un client
 	string nom;
@@ -266,10 +290,10 @@ void BiscuitCo::liste_clients() {
 }
 
 // Méthode permettant d’intégrer aux clients les commandes enregistrés sur le document txt
-void BiscuitCo::liste_commandes() {
+void BiscuitCo::liste_commandes(string _fichierCommande) {
 
 	// Lecture du fichiers Commandes
-	ifstream fin("Files/PRESIDENTS_COMMANDES.txt");
+	ifstream fin(_fichierCommande);
 
 	// Une commande est composé de ces variables
 	string source;
@@ -284,15 +308,11 @@ void BiscuitCo::liste_commandes() {
 	// Tant que l’on peut récuperer des informations sur le fichier
 	while (fin >> source){
 		fin >> destinataire;
-		// Vérifier si les clients existent avant d’effectuer la commande
-		if (trouverClient(destinataire) && trouverClient(source)) {
+		
 
-			Client* _clientSource = clientCourant();
-			// Création d’une commande 
-			_clientSource->insererCommande(source, destinataire);
-
-			Commande* current = _clientSource->commandeCourante();
-
+		Commande* commande = verifierClientsEtCreerCommande(source, destinataire);
+		
+		if(commande != NULL){
 			// Il faut maintenant lire chaque achat et l’ajouter à la commande
 			// Les achats sont listés sur plusieurs lignes, jusqu’au "&"
 			// la variable courant nous permet de faire cette vérification
@@ -307,17 +327,14 @@ void BiscuitCo::liste_commandes() {
 				fin >> quantiteCookie;
 
 				// Nous pouvons insérer un achat composé de ces deux informations
-				current->insererAchat(nomCookie,quantiteCookie);
+				commande->insererAchat(nomCookie,quantiteCookie);
 
 				// Changer de ligne
 				fin >> courant;
-			} 
+			}
 
 			//Maintenant que la commande est créé, il faut ajouter chaque achat dans la liste des cookies.
-			ajouterCommandeCookies( current);
-		} else {
-			cout << "Au moins un des clients de cette commande ne fait pas partie des membres enregistrés." << endl;
-			cout << "La commande n’a pas été sauvegardée." << endl;
+			ajouterCommandeCookies(commande);
 		}
 	}
 

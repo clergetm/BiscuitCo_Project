@@ -414,6 +414,8 @@ public:
 	// Commandes
 	void ajouterCommandeCookies(Commande*); // Ajouter la Commander passée en paramètre à la liste des commandes du client
 	void supprimerCommandeCookies(Commande*);
+	Commande* verifierClientsEtCreerCommande(string,string);
+
 
 	// Cookies
 	bool trouverCookie(string);
@@ -428,7 +430,7 @@ public:
 	void meilleurCookie();
 
 	// Storage
-	void liste_clients();
-	void liste_commandes();
+	void liste_clients(string);
+	void liste_commandes(string);
 	void liste_transactions();
 };

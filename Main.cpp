@@ -2,6 +2,9 @@
 #include <string>
 #include "BiscuitCo.h"
 using namespace std;
+const string CLIENT = "PRESIDENTS_CLIENTS.txt";
+const string COMMANDE = "PRESIDENTS_COMMANDES.txt";
+const string TRANSACTIONS = "PRESIDENTS_TRANSACTIONS.txt";
 
 void test_Achat() {
     cout << "##########TEST ACHAT##########" << endl;
@@ -49,7 +52,7 @@ void test_Commande() {
 
 void test_liste_clients() {
     BiscuitCo entreprise;
-    entreprise.liste_clients();
+    entreprise.liste_clients(CLIENT);
 
     for (entreprise.fixerTeteClient(); entreprise.estDansListeClient(); entreprise.clientSuivant()) {
         cout << entreprise.clientCourant()->toString() << endl;
@@ -58,8 +61,8 @@ void test_liste_clients() {
 
 void test_liste_commandes() {
     BiscuitCo entreprise;
-    entreprise.liste_clients();
-    entreprise.liste_commandes();
+    entreprise.liste_clients(CLIENT);
+    entreprise.liste_commandes(COMMANDE);
 
     for (entreprise.fixerTeteClient(); entreprise.estDansListeClient(); entreprise.clientSuivant()) {
         cout << entreprise.clientCourant()->toString() << endl;
@@ -68,14 +71,16 @@ void test_liste_commandes() {
 
 void test_get_meilleur_Cookie() {
     BiscuitCo entreprise;
-    entreprise.liste_clients();
-    entreprise.liste_commandes();
+    entreprise.liste_clients(CLIENT);
+    entreprise.liste_commandes(COMMANDE);
 
     entreprise.meilleurCookie();
 
     entreprise.supprimerCookie("chocolat", 10350);
     entreprise.trouverCookie("chocolat");
-    cout << entreprise.cookieCourant()->toString() << endl;
+    Cookie* cookie = entreprise.cookieCourant();
+
+    cout << cookie->toString() << endl;
 
     entreprise.meilleurCookie();
 
