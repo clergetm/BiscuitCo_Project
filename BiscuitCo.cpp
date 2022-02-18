@@ -343,18 +343,93 @@ void BiscuitCo::liste_commandes(string _fichierCommande) {
 }
 
 
-// Méthode permettant d’intégrer les transactions effectues dans le document txt
-//void BiscuitCo::liste_transactions() {
-//
-//	ifstream fin("Files/PRESIDENTS_TRANSACTIONS.txt"); //Lecture
-//	cout << "Contenu du fichier : \n";
-//	char co;
-//	while (fin.get(co))
-//		cout << co;
-//	
-//		cout << nom + "\n";
-//
-//	cout << "\n **** Fin du fichier. **** \n";
-//
-//	fin.close();
-//}
+//Méthode permettant d’intégrer les transactions effectues dans le document txt
+void BiscuitCo::liste_transactions(string _fichierTransaction) {
+
+	ifstream fin(_fichierTransaction); //Lecture
+
+	char caractere;
+	//Implémentaion dans supprimerClient insérerClient
+	string nomClient;
+	//Implémentaion dans insérerClient
+	short int numero;
+	string rue;
+
+	//Implémentaion dans 
+	string source;
+	string nomFichierClient;
+	string nomFichierCommande;
+	string destinataire;
+	string nomCookie;
+	string courant;
+	short int quantiteCookie;
+
+	while (fin >> caractere) {
+		switch (caractere) {
+		case '-':
+			fin >> nomClient;
+			supprimerClient(nomClient);
+			break;
+		case '+':
+			fin >> nomClient >> numero >> rue;
+			insererClient(nomClient, numero, rue);
+			break;
+		case '=':
+			fin >> source >> destinataire;
+			Commande * commande = verifierClientsEtCreerCommande(source, destinataire);
+
+			if (commande != NULL) {
+				// Il faut maintenant lire chaque achat et l’ajouter à la commande
+				// Les achats sont listés sur plusieurs lignes, jusqu’au "&"
+				// la variable courant nous permet de faire cette vérification
+
+				// On récupère une première fois la ligne suivant le destinataire
+				fin >> courant;
+				while (courant != "&") {
+					// Si ce n'étais pas "&" c'était alors le nom d'un cookie.
+					nomCookie = courant;
+
+					// Sur cette même ligne nous récupérons la quantité indiquée
+					fin >> quantiteCookie;
+
+					// Nous pouvons insérer un achat composé de ces deux informations
+					commande->insererAchat(nomCookie, quantiteCookie);
+
+					// Changer de ligne
+					fin >> courant;
+				}
+
+				//Maintenant que la commande est créé, il faut ajouter chaque achat dans la liste des cookies.
+				ajouterCommandeCookies(commande);
+			}
+			break;
+
+		case '?':
+			fin >> nomClient;
+			trouverClient(nomClient);
+			cout << clientCourant()->toString();
+			break;
+
+		case '$':
+			meilleurCookie();
+			break;
+
+		case 'O':
+			fin >> nomFichierClient;
+			fin >> nomFichierCommande;
+			break;
+		case 'S':
+			fin >> nomFichierClient;
+			fin >> nomFichierCommande;
+
+			break;
+
+		default:
+			cout << "\n fin de la liste transaction \n";
+			return;
+		}
+
+
+		fin.close();
+
+	}

@@ -432,5 +432,5 @@ public:
 	// Storage
 	void liste_clients(string);
 	void liste_commandes(string);
-	void liste_transactions();
+	void liste_transactions(string);
 };
