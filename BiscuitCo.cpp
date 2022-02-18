@@ -396,6 +396,7 @@ void BiscuitCo::ouverture_transactions(string _fichierTransaction) {
 			// Suppression d'un Client
 			case '-': {
 				fin >> nomClient;
+				cout << "Suppression " << nomClient << "\n" << endl;
 				supprimerClient(nomClient);
 				break;
 			}
@@ -403,6 +404,8 @@ void BiscuitCo::ouverture_transactions(string _fichierTransaction) {
 			// Ajout d'un Client
 			case '+': {
 				fin >> nomClient >> numero >> rue;
+
+				cout << "Ajout " << nomClient << "\n" << endl;
 				insererClient(nomClient, numero, rue);
 				break;
 			}
@@ -410,6 +413,7 @@ void BiscuitCo::ouverture_transactions(string _fichierTransaction) {
 			// Ajout d'une commande d'un client
 			case '=': {
 				fin >> source >> destinataire;
+				cout << "Ajout d'une commande de " << source << " à " << destinataire << "\n" << endl;
 				Commande* commande = verifierClientsEtCreerCommande(source, destinataire);
 
 				if (commande != NULL) {
@@ -442,19 +446,22 @@ void BiscuitCo::ouverture_transactions(string _fichierTransaction) {
 			// Afficher les commandes faites par un Client
 			case '?': {
 				fin >> nomClient;
+				cout << "Affichage des commandes de " << nomClient << "\n" << endl;
 				trouverClient(nomClient);
-				cout << clientCourant()->toString();
+				cout << clientCourant()->toStringCommandes();
 				break;
 			}
 
 			// Afficher les informations du meilleur cookie
 			case '$': {
+				cout << "Affichage du meilleur Cookie" << "\n" << endl;
 				meilleurCookie();
 				break;
 			}
 
 			// Ouverture des fichiers de Clients et Commandes
 			case 'O': {
+				cout << "Ouvertures des fichiers des Clients et Commandes \n" << endl;
 				fin >> nomFichierClient;
 				fin >> nomFichierCommande;
 				ouverture_clients(nomFichierClient);
@@ -464,6 +471,7 @@ void BiscuitCo::ouverture_transactions(string _fichierTransaction) {
 
 			// Sauvegarde des Clients et Commandes
 			case 'S': {
+				cout << "Sauvegardes des fichiers des Clients et Commandes \n" << endl;
 				fin >> nomFichierClient;
 				fin >> nomFichierCommande;
 				sauvegarde_clients(nomFichierClient);
@@ -479,6 +487,8 @@ void BiscuitCo::ouverture_transactions(string _fichierTransaction) {
 			}
 		}
 	}
+
+	cout << "\n Merci Isaaaaaaa :)" << endl;
 	fin.close();
 }
 

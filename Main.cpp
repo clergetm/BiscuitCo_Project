@@ -114,12 +114,9 @@ int main() {
     //cout << "\n \n" << endl;
     //test_liste_commandes();
     //test_get_meilleur_Cookie();
-    //BiscuitCo entreprise;
-    //entreprise.ouverture_clients();
-    //entreprise.ouverture_commandes();
-    //entreprise.liste_transactions();
-    //test_sauvegardeClient();
-    //test_sauvegardeCommande();
+    
+    BiscuitCo entreprise;
+    entreprise.ouverture_transactions(TRANSACTIONS);
 
     system("pause");
     return 0;

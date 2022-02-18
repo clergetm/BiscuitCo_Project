@@ -429,3 +429,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+PRESIDENTS_COMMANDES1.txt
+PRESIDENTS_CLIENTS1.txt

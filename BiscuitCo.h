@@ -11,7 +11,7 @@ using namespace std;
 struct Achat
 {
 	string nomCookie;
-	short int quantiteCookie;
+	short int quantiteCookie=0;
 	Achat* achatSuivant;
 
 	// Constructeur par defaut de Achat
@@ -82,6 +82,7 @@ struct Commande {
 
 	//Destructeur de Commande
 	~Commande() {
+		// Destruction Achat
 		// Tant que la tete n’est pas vidée, on détruit l’élément suivant
 		while (teteAchat != nullptr) {
 			courantAchat = teteAchat;
@@ -189,7 +190,7 @@ struct Commande {
 struct Client {
 	// Structure Client
 	string nom;
-	short int numero;
+	short int numero = 0;
 	string rue;
 
 
@@ -227,6 +228,7 @@ struct Client {
 
 	//Destructeur de Client 
 	~Client() {
+		// Destruction Commandes
 		// Tant que la tete n’est pas vidée, on détruit l’élément suivant
 		while (teteCommande != nullptr) {
 			courantCommande = teteCommande;
