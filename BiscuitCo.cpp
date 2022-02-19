@@ -1,4 +1,4 @@
-#include "BiscuitCo.h"
+Ôªø#include "BiscuitCo.h"
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -6,7 +6,7 @@ using namespace std;
 
 // Constructeur par defaut de BiscuitCo
 BiscuitCo::BiscuitCo() {
-	cout << "Construction BiscuitCo sans paramËtre" << endl;
+	cout << "Construction BiscuitCo sans param√®tre" << endl;
 	// Initialisation de la liste des cookies
 	this->teteCookie = this->queueCookie = this->courantCookie = new Cookie();
 
@@ -34,54 +34,63 @@ BiscuitCo::~BiscuitCo() {
 }
 
 
-
 /// CLIENTS //////////////////////////////////////////////////
 
+
 /**
-* Fonction return True si le client existe,
-* Síil existe, le pointeur clientCourant pointera sur ce client
-* @param _nomclient : le nom du client ‡ trouver
+* Fonction trouvant si le client existe dans la liste chaÔøΩnÔøΩe.
+* S‚Äôil existe, le pointeur clientCourant pointera sur ce client
+* @param _nomclient : le nom du client √† trouver
+* @returns Return True si le client existe.
 */
 bool BiscuitCo::trouverClient(string _nomClient) {
-	// Il faut parcourir toute la liste
+	// On parcourt la liste des clients compl√©tement
 	for (fixerTeteClient(); estDansListeClient(); clientSuivant()) {
 		Client* temp = clientCourant();
 		if (temp->nom == _nomClient) {
 			return true;
 		}
 	}
-	return false; // Le client cherchÈ ne se trouve pas dans la liste
+	return false; // Le client cherch√© ne se trouve pas dans la liste
 }
 
-// Transporte le pointeur courant ‡ la tÍte de la liste
-// Code provenant du cours
+/**
+* Transporte le pointeur courant √† la t√™te de la liste
+* Code provenant du cours
+*/
 void BiscuitCo::fixerTeteClient() {
 	courantClient = teteClient;
 }
 
-// Return true si le pointeur courant est ‡ líintÈrieur de la liste
-// Code provenant du cours
+/**
+* Code provenant du cours
+* @returns true si le pointeur courant est ÔøΩ lÔøΩintÔøΩrieur de la liste
+*/
 bool BiscuitCo::estDansListeClient() const {
 	return (courantClient != nullptr) && (courantClient->clientSuivant != nullptr);
 }
 
-// Transporte le pointeur courant au cookie suivant dans la liste
-// Code provenant du cours
+/**
+* Transporte le pointeur courant au cookie suivant dans la liste
+* Code provenant du cours
+*/
 void BiscuitCo::clientSuivant() {
 	if (courantClient != nullptr)
 		courantClient = courantClient->clientSuivant;
 }
 
-// Retourne le client actuellement pointÈ
-// Code provenant du cours
+/**
+* Code provenant du cours
+* @returns le client actuellement point√©
+*/
 Client* BiscuitCo::clientCourant() const {
 	return courantClient->clientSuivant;
 }
 
 /**
-* Inserer un Client ‡ la fin de la liste des Clients
+* Inserer un Client √† la fin de la liste des Clients
 * @param _nomClient : le nom du client
-* @param _numero : le numÈro de rue du client
+* @param _numero : le num√©ro de rue du client
 * @param _rue : la rue du client
 */
 void BiscuitCo::insererClient(string _nomClient, short int _numero, string _rue) {
@@ -94,22 +103,26 @@ void BiscuitCo::insererClient(string _nomClient, short int _numero, string _rue)
 */
 void BiscuitCo::supprimerClient(string _nomClient) {
 
-	// Il faut díabord trouver son emplacement dans la liste des Clients
+	// Il faut d‚Äôabord trouver son emplacement dans la liste des Clients
 	if (trouverClient(_nomClient)) {
 		Client* courant = clientCourant();
 
-		// Suppression de ses commandes
-		// Mettre ‡ jour les totaux des cookies
+		// La suppression de ses commandes se fait en deux √©tapes
+		// 1.Mettre √† jour les totaux des cookies
 		for (courant->fixerTeteCommande(); courant->estDansListeCommande(); courant->commandeSuivante()) {
 			supprimerCommandeCookies(courant->commandeCourante());
 		}
 
+		// 2. Vider la liste cha√Æn√©e des commandes
 		courant->viderListeCommandes();
+
 		//Suppression du Client
 		courantClient->clientSuivant = courant->clientSuivant;
 		if (queueClient == courant) {
 			queueClient = courantClient;
 		}
+
+		// Suppression du pointeur
 		delete courant;
 	}
 }
@@ -120,16 +133,20 @@ void BiscuitCo::supprimerClient(string _nomClient) {
 */
 void BiscuitCo::supprimerClientDest(string _destinataire) {
 
-
+	// On parcourt compl√®tement la liste des Clients
 	for (fixerTeteClient(); estDansListeClient(); clientSuivant()) {
+		// Pour chaque client, on parcourt sa liste des commandes
 		Client* courant = clientCourant();
 		for (courant->fixerTeteCommande(); courant->estDansListeCommande(); courant->commandeSuivante()) {
+			// On verra pour chacune des commandes 
 			Commande* cmd = courant->commandeCourante();
+			// Si le destinataire est celui recherch√©
 			if (cmd->destinataire == _destinataire) {
 				supprimerCommandeCookies(cmd);
 				courant->supprimerCommande();
 			}
 
+			// Suppression des pointeurs 
 			delete courant;
 			delete cmd;
 		}
@@ -139,64 +156,73 @@ void BiscuitCo::supprimerClientDest(string _destinataire) {
 
 /// COMMANDES ////////////////////////////////////////////////
 
+
 /**
 * Augmenter les totaux des cookies en fonctions des achats de la commande
-* @param _commande : la commande ‡ ajouter
+* @param _commande : la commande √† ajouter
 */
 void BiscuitCo::ajouterCommandeCookies(Commande* _commande) {
+	// On parcourt tous les achats de cette commande
 	for (_commande->fixerTeteAchat(); _commande->estDansListeAchat(); _commande->achatSuivant()) {
 		Achat* achat = _commande->achatCourant();
+		// On modifie les totaux des cookies
 		insererCookie(achat->nomCookie, achat->quantiteCookie);
 	}
 }
 
 /**
-* RÈduire les totaux des cookies en fonctions des achats de la commande
-* @param _commande : la commande ‡ retirer
+* R√©duire les totaux des cookies en fonctions des achats de la commande
+* @param _commande : la commande √† retirer
+* @returns la commande nouvellement cr√©√©e ou NULL sinon
 */
 void BiscuitCo::supprimerCommandeCookies( Commande* _commande) {
+	// On parcourt tous les achats de cette commande
 	for (_commande->fixerTeteAchat(); _commande->estDansListeAchat(); _commande->achatSuivant()) {
 		Achat* achat = _commande->achatCourant();
+		// On modifie les totaux des cookies
 		supprimerCookie(achat->nomCookie, achat->quantiteCookie);
 	}
 }
 
 /**
-* VÈrification de l'existence des clients dans la liste chaÓnÈe et crÈation de la nouvelle commande.
+* V√©rification de l'existence des clients dans la liste cha√Æn√©e et cr√©ation de la nouvelle commande.
 * Si les clients n'existent pas, return null
-* @param _source : le nom du client ‡ la source de la commande
+* @param _source : le nom du client √† la source de la commande
 * @param _destinataire : le nom du client destinataire de la commande
 */
 Commande* BiscuitCo::verifierClientsEtCreerCommande(string _source, string _destinataire) {
 
-	// On vÈrifier que les deux clients existent
+	// On v√©rifier que les deux clients existent
 	if (trouverClient(_source) && trouverClient(_destinataire)) {
 
 		Client* _clientSource = clientCourant();
-		// CrÈation díune commande 
+		// Cr√©ation d‚Äôune commande 
 		_clientSource->insererCommande(_source, _destinataire);
 
 		// Retourne cette nouvelle commande
 		return _clientSource->commandeCourante();
 	} 
 
-	cout << "Au moins un des clients de cette commande ne fait pas partie des membres enregistrÈs." << endl;
-	cout << "La commande nía pas ÈtÈ sauvegardÈe." << endl;
+	// Si les deux clients n'existent pas
+	cout << "Au moins un des clients de cette commande ne fait pas partie des membres enregistr√©s." << endl;
+	cout << "La commande n‚Äôa pas √©t√© sauvegard√©e." << endl;
 	return NULL;
 }
+
 
 /// COOKIES //////////////////////////////////////////////////
 
 
 /**
-* Fonction return True si le cookie existe,
-* Síil existe, le pointeur cookiecourante pointera sur ce cookie
-* @param _nomCookie : le nom du cookie ‡ trouver
+* Si le cookie existe, le pointeur cookiecourant pointera sur ce cookie
+* @param _nomCookie : le nom du cookie ÔøΩ trouver
+* @returns return True si le cookie existe
 */
 bool BiscuitCo::trouverCookie(string _nomCookie) {
-
+	// On parcourt la liste de Cookies
 	for (fixerTeteCookie(); estDansListeCookie(); cookieSuivant()) {
 		Cookie* tmp = cookieCourant();
+
 		if (tmp->nomCookie == _nomCookie) {
 			return true;
 		}
@@ -204,50 +230,57 @@ bool BiscuitCo::trouverCookie(string _nomCookie) {
 	return false;
 }
 
-// Transporte le pointeur courant ‡ la tÍte de la liste
+// Transporte le pointeur courant √† la t√™te de la liste
 // Code provenant du cours
 void BiscuitCo::fixerTeteCookie() {
 	courantCookie = teteCookie;
 }
 
-// Return true si le pointeur courant est ‡ líintÈrieur de la liste
-// Code provenant du cours
+/**
+* Code provenant du cours
+* @returns  true si le pointeur courant est ÔøΩ l'int√©rieur de la liste
+*/
 bool BiscuitCo::estDansListeCookie() const {
 	return (courantCookie != nullptr) && this->courantCookie->cookieSuivant != nullptr;
 }
 
-// Transporte le pointeur courant au cookie suivant dans la liste
-// Code provenant du cours
+/**
+* Transporte le pointeur courant au cookie suivant dans la liste
+* Code provenant du cours
+*/
 void BiscuitCo::cookieSuivant() {
 	if (courantCookie != nullptr)
 		courantCookie = courantCookie->cookieSuivant;
 }
 
-// Retourne le cookie actuellement pointÈ
-// Code provenant du cours
+
+/**
+* Code provenant du cours
+* @returns le cookie actuellement point√©
+*/
 Cookie* BiscuitCo::cookieCourant() const {
 	return this->courantCookie->cookieSuivant;
 }
 
 /**
-* Augmenter le total du cookie dÈj‡ existant ou en crÈer un nouveau
+* Augmenter le total du cookie d√©j√† existant ou en cr√©er un nouveau
 * @param _nomCookie : le nom du Cookie
 * @param _quantiteCookie : la quantite de ce Cookie
 */
 void BiscuitCo::insererCookie(string _nomCookie, short int _quantiteCookie) {
 
-	// Le Cookie existe dÈj‡
+	// Le Cookie existe d√©j√†
 	if (trouverCookie(_nomCookie)) {
 		cookieCourant()->AugmenterTotal(_quantiteCookie);
 
-	// Il faut crÈer un nouveau Cookie
+	// Il faut cr√©er un nouveau Cookie
 	} else {
 		queueCookie = queueCookie->cookieSuivant = new Cookie(_nomCookie, _quantiteCookie);
 	}
 }
 
 /**
-* Reduire le total du cookie dÈj‡ existant et le supprimer síil le total est nul
+* Reduire le total du cookie d√©j√† existant et le supprimer s‚Äôil le total est nul
 * @param _nomCookie : le nom du Cookie
 * @param _quantiteCookie : la quantite de ce Cookie
 */
@@ -256,27 +289,31 @@ void BiscuitCo::supprimerCookie(string _nomCookie, short int _quantiteCookie) {
 	// Le Cookie existe
 	if (trouverCookie(_nomCookie)) {
 		cookieCourant()->ReduireTotal(_quantiteCookie);
+
+		// Il n‚Äôy a plus de commandes pour ce Cookie
+		if (cookieCourant()->total <= 0) {
+			Cookie* courant = cookieCourant();
+			courantCookie->cookieSuivant = courant->cookieSuivant;
+			if (queueCookie == courant) {
+				queueCookie = courantCookie;
+			}
+
+			// Suppression du pointeur
+			delete courant;
+		}
 	}
 	
-	// Il níy a plus de Cookie commandÈ
-	if (cookieCourant()->total <= 0) {
-		Cookie* courant = cookieCourant();
-		courantCookie->cookieSuivant = courant->cookieSuivant;
-		if (queueCookie == courant) {
-			queueCookie = courantCookie;
-		}
-		delete courant;
-	}
+
 }
 
-// Methode permettant díafficher sur la console le Cookie avec le total le plus ÈlevÈ
+// Methode permettant d‚Äôafficher sur la console le Cookie avec le total le plus √©lev√©
 void BiscuitCo::meilleurCookie() {
 
-	// Initialisation du point de dÈpart
+	// Initialisation du point de d√©part
 	fixerTeteCookie();
 	Cookie* meilleur = cookieCourant();
 
-	// Trouver le cookie avec le total le plus ÈlevÈ
+	// Trouver le cookie avec le total le plus √©lev√©
 	for (fixerTeteCookie(); estDansListeCookie(); cookieSuivant()) {
 		if (cookieCourant()->total > meilleur->total) {
 			meilleur = cookieCourant();
@@ -286,12 +323,16 @@ void BiscuitCo::meilleurCookie() {
 	// Afficher ses informations
 	cout << "Le cookie le plus populaire est le suivant :" << endl;
 	cout << meilleur->toString() << endl;
+
 }
 
 /// STORAGE //////////////////////////////////////////////////
 
 
-// Methode permettant díintÈgrer ‡ líobject BiscuitCo les informations sur les clients
+/**
+* Methode permettant d'int√©grer √† l‚Äôobject BiscuitCo les informations sur les clients
+* @param _fichierClient : le fichier des clients
+*/
 void BiscuitCo::ouverture_clients(string _fichierClient) {
 
 	ifstream fin(_fichierClient); //Lecture
@@ -301,10 +342,10 @@ void BiscuitCo::ouverture_clients(string _fichierClient) {
 	string rue;
 	short int num;
 
-	// Tant que líon peut recupÈrer les informations
+	// Tant que l‚Äôon peut recup√©rer les informations
 	while (fin >> nom) {
 		fin >> num >> rue;
-		//CrÈer un client
+		//Cr√©er un client
 		insererClient(nom, num, rue);
 	}
 
@@ -312,51 +353,54 @@ void BiscuitCo::ouverture_clients(string _fichierClient) {
 	fin.close();
 }
 
-// MÈthode permettant díintÈgrer aux clients les commandes enregistrÈs sur le document txt
+/**
+* M√©thode permettant d'int√©grer aux clients les commandes enregistr√©s sur le document txt
+* @param _fichierCommande : le fichier des commandes
+*/
 void BiscuitCo::ouverture_commandes(string _fichierCommande) {
 
 	// Lecture du fichiers Commandes
 	ifstream fin(_fichierCommande);
 
-	// Une commande est composÈ de ces variables
+	// Une commande est compos√© de ces variables
 	string source;
 	string destinataire;
 
-	// Un achat est composÈ de ces variables
+	// Un achat est compos√© de ces variables
 	string nomCookie;
 	short int quantiteCookie;
 
 	string courant = "";
 
-	// Tant que líon peut rÈcuperer des informations sur le fichier
+	// Tant que l‚Äôon peut r√©cuperer des informations sur le fichier
 	while (fin >> source){
 		fin >> destinataire;
 		
-
+		// On v√©rifie que les clients existent et on cr√©√© la commande
 		Commande* commande = verifierClientsEtCreerCommande(source, destinataire);
 		
 		if(commande != NULL){
-			// Il faut maintenant lire chaque achat et líajouter ‡ la commande
-			// Les achats sont listÈs sur plusieurs lignes, jusquíau "&"
-			// la variable courant nous permet de faire cette vÈrification
+			// Il faut maintenant lire chaque achat et l‚Äôajouter √† la commande
+			// Les achats sont list√©s sur plusieurs lignes, jusqu‚Äôau "&"
+			// la variable courant nous permet de faire cette v√©rification
 
-			// On rÈcupËre une premiËre fois la ligne suivant le destinataire
+			// On r√©cup√®re une premi√®re fois la ligne suivant le destinataire
 			fin >> courant;
 			while (courant != "&") {
-				// Si ce n'Ètais pas "&" c'Ètait alors le nom d'un cookie.
+				// Si ce n'√©tais pas "&" c'√©tait alors le nom d'un cookie.
 				nomCookie = courant;
 
-				// Sur cette mÍme ligne nous rÈcupÈrons la quantitÈ indiquÈe
+				// Sur cette m√™me ligne nous r√©cup√©rons la quantit√© indiqu√©e
 				fin >> quantiteCookie;
 
-				// Nous pouvons insÈrer un achat composÈ de ces deux informations
+				// Nous pouvons ins√©rer un achat compos√© de ces deux informations
 				commande->insererAchat(nomCookie,quantiteCookie);
 
 				// Changer de ligne
 				fin >> courant;
 			}
 
-			//Maintenant que la commande est crÈÈ, il faut ajouter chaque achat dans la liste des cookies.
+			//Maintenant que la commande est cr√©√©, il faut ajouter chaque achat dans la liste des cookies.
 			ajouterCommandeCookies(commande);
 		}
 	}
@@ -367,21 +411,21 @@ void BiscuitCo::ouverture_commandes(string _fichierCommande) {
 
 
 /**
-* MÈthode permettant díintÈgrer les transactions effectues dans le document txt
-* @param _fichierTransaction : Fichier de transaction ‡ lire
+* M√©thode permettant d‚Äôint√©grer les transactions effectues dans le document txt
+* @param _fichierTransaction : Fichier de transaction √† lire
 */
 void BiscuitCo::ouverture_transactions(string _fichierTransaction) {
 
 	ifstream fin(_fichierTransaction); //Lecture
 
 	char caractere;
-	//ImplÈmentaion dans supprimerClient insÈrerClient
+	//Impl√©mentaion dans supprimerClient ins√©rerClient
 	string nomClient;
-	//ImplÈmentaion dans insÈrerClient
+	//Impl√©mentaion dans ins√©rerClient
 	short int numero;
 	string rue;
 
-	//ImplÈmentaion des variables nÈcessaires 
+	//Impl√©mentaion des variables n√©cessaires 
 	string source;
 	string nomFichierClient;
 	string nomFichierCommande;
@@ -413,31 +457,31 @@ void BiscuitCo::ouverture_transactions(string _fichierTransaction) {
 			// Ajout d'une commande d'un client
 			case '=': {
 				fin >> source >> destinataire;
-				cout << "Ajout d'une commande de " << source << " ‡ " << destinataire << "\n" << endl;
+				cout << "Ajout d'une commande de " << source << " √† " << destinataire << "\n" << endl;
 				Commande* commande = verifierClientsEtCreerCommande(source, destinataire);
 
 				if (commande != NULL) {
-					// Il faut maintenant lire chaque achat et líajouter ‡ la commande
-					// Les achats sont listÈs sur plusieurs lignes, jusquíau "&"
-					// la variable courant nous permet de faire cette vÈrification
+					// Il faut maintenant lire chaque achat et l‚Äôajouter √† la commande
+					// Les achats sont list√©s sur plusieurs lignes, jusqu‚Äôau "&"
+					// la variable courant nous permet de faire cette v√©rification
 
-					// On rÈcupËre une premiËre fois la ligne suivant le destinataire
+					// On r√©cup√®re une premi√®re fois la ligne suivant le destinataire
 					fin >> courant;
 					while (courant != "&") {
-						// Si ce n'Ètais pas "&" c'Ètait alors le nom d'un cookie.
+						// Si ce n'√©tais pas "&" c'√©tait alors le nom d'un cookie.
 						nomCookie = courant;
 
-						// Sur cette mÍme ligne nous rÈcupÈrons la quantitÈ indiquÈe
+						// Sur cette m√™me ligne nous r√©cup√©rons la quantit√© indiqu√©e
 						fin >> quantiteCookie;
 
-						// Nous pouvons insÈrer un achat composÈ de ces deux informations
+						// Nous pouvons ins√©rer un achat compos√© de ces deux informations
 						commande->insererAchat(nomCookie, quantiteCookie);
 
 						// Changer de ligne
 						fin >> courant;
 					}
 
-					//Maintenant que la commande est crÈÈ, il faut ajouter chaque achat dans la liste des cookies.
+					//Maintenant que la commande est cr√©√©, il faut ajouter chaque achat dans la liste des cookies.
 					ajouterCommandeCookies(commande);
 				}
 				break;
@@ -493,21 +537,22 @@ void BiscuitCo::ouverture_transactions(string _fichierTransaction) {
 }
 
 /**
-* Fonction sauvegarde de la liste chaÓnÈe des Clients sur un fichier txt
+* Fonction sauvegarde de la liste cha√Æn√©e des Clients sur un fichier txt
 * @param _nomFichierClient : Le nom du fichier de sauvegarde
 */
 void BiscuitCo::sauvegarde_clients(string _nomFichierClient) {
 
-	// CrÈation/Ouverture du fichier de sauvegarde
+	// Cr√©ation/Ouverture du fichier de sauvegarde
 	ofstream sortie;
 	sortie.open(_nomFichierClient);
 	
-	// On parcourt tous les clients et on sauvegarde les informations de ceux l‡
+	// On parcourt tous les clients et on sauvegarde les informations de ceux l√†
 	for (fixerTeteClient(); estDansListeClient(); clientSuivant()) {
 		Client* courant = clientCourant();
 		sortie << courant->toString();
 	}
 
+	// Fermeture du fichier
 	sortie.close();
 }
 
@@ -516,16 +561,17 @@ void BiscuitCo::sauvegarde_clients(string _nomFichierClient) {
 * @param _nomFichierCommande : Le nom du fichier de sauvegarde
 */
 void BiscuitCo::sauvegarde_commandes(string _nomFichierCommande) {
-	// CrÈation/Ouverture du fichier de sauvegarde
+	// Cr√©ation/Ouverture du fichier de sauvegarde
 	ofstream sortie;
 	sortie.open(_nomFichierCommande);
 
 
-	// On parcourt tous les clients et on sauvegarde les commandes de ceux l‡
+	// On parcourt tous les clients et on sauvegarde les commandes de ceux l√†
 	for (fixerTeteClient(); estDansListeClient(); clientSuivant()) {
 		Client* courant = clientCourant();
 		sortie << courant->toStringCommandes();
 	}
 
+	// Fermeture du fichier
 	sortie.close();
 }

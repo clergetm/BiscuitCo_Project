@@ -1,12 +1,12 @@
-#pragma once
+Ôªø#pragma once
 #include <string>
 #include <iostream>
 using namespace std;
 
 /**
 * Structure de Achat
-* Une commande est composÈe de plusieurs achats
-* Chaque Achat modifie le total des cookies commandÈs
+* Une commande est compos√©e de plusieurs achats
+* Chaque Achat modifie le total des cookies command√©s
 */
 struct Achat
 {
@@ -22,8 +22,8 @@ struct Achat
 	/**
 	* Constructeur de Achat
 	* @param _nomCookie : le nom du cookie
-	* @param _quantiteCookie : la quantite achetÈe 
-	* @param _suivant : pointeur vers líachat suivant
+	* @param _quantiteCookie : la quantite achet√©e 
+	* @param _suivant : pointeur vers l‚Äôachat suivant
 	*/
 	Achat(string _nomCookie, short int _quantiteCookie, Achat * _suivant = nullptr) {
 		nomCookie = _nomCookie;
@@ -35,8 +35,8 @@ struct Achat
 	~Achat() {}
 
 	/**
-	* MÈthode renvoyant les informations de Achat sous forme de string
-	* @return le nom du cookie suivit de sa quantitÈ achetÈe
+	* M√©thode renvoyant les informations de Achat sous forme de string
+	* @return le nom du cookie suivit de sa quantit√© achet√©e
 	*/
 	string toString() {
 		return nomCookie + " " + to_string(quantiteCookie);
@@ -59,7 +59,7 @@ struct Commande {
 	// Structure Noeud-Commande
 	Commande* commandeSuivante = nullptr;
 
-	//Constructeur par dÈfaut de Commande
+	//Constructeur par d√©faut de Commande
 	Commande(Commande * _suivante = nullptr) {
 		teteAchat = queueAchat = courantAchat = new Achat;
 		commandeSuivante = _suivante;
@@ -67,7 +67,7 @@ struct Commande {
 
 	/**
 	* Constructeur de Commande
-	* @param _source : le nom du Client ‡ la source de la Commande
+	* @param _source : le nom du Client √† la source de la Commande
 	* @param _destinataire : le nom du destinataire de la Commande
 	* @param _suivante : pointeur vers la Commande suivante
 	*/
@@ -83,7 +83,7 @@ struct Commande {
 	//Destructeur de Commande
 	~Commande() {
 		// Destruction Achat
-		// Tant que la tete níest pas vidÈe, on dÈtruit líÈlÈment suivant
+		// Tant que la tete n‚Äôest pas vid√©e, on d√©truit l‚Äô√©l√©ment suivant
 		while (teteAchat != nullptr) {
 			courantAchat = teteAchat;
 			teteAchat = teteAchat->achatSuivant;
@@ -92,29 +92,29 @@ struct Commande {
 	}
 
 	/**
-	* Inserer un Achat ‡ la fin de la liste des Achats
+	* Inserer un Achat √† la fin de la liste des Achats
 	* @param _nomCookie : le nom du cookie
-	* @param _quantiteCookie : la quantite achetÈe
+	* @param _quantiteCookie : la quantite achet√©e
 	*/
 	void insererAchat(string _nomCookie, short int _quantiteCookie) {
 		queueAchat = queueAchat->achatSuivant = new Achat(_nomCookie, _quantiteCookie);	
 	}
 
-	// Supprimer un Achat ‡ la position courante
+	// Supprimer un Achat √† la position courante
 	// Code provenant du cours
 	void supprimerAchat() {
 		
 		// Sauvegarde du pointeur suivant
 		Achat* courant = achatCourant();
-		// Suppression de líÈlÈment
+		// Suppression de l‚Äô√©l√©ment
 		courantAchat->achatSuivant = courant->achatSuivant;
 
 		if (queueAchat == courant) {
-			// Cíest le dernier ÈlÈment supprimÈ, mise ‡ jour de queueAchat
+			// C‚Äôest le dernier √©l√©ment supprim√©, mise √† jour de queueAchat
 			queueAchat = courantAchat;
 		}
 
-		// Suppression du pointeur crÈÈ
+		// Suppression du pointeur cr√©√©
 		delete courant;
 	}
 	
@@ -122,7 +122,7 @@ struct Commande {
 	// Code provenant du cours
 	void viderListeAchats() {
 
-		// On parcourt la liste et on supprime líachat courant ‡ chaque itÈration
+		// On parcourt la liste et on supprime l‚Äôachat courant √† chaque it√©ration
 		while (teteAchat->achatSuivant != nullptr) {
 			courantAchat = teteAchat->achatSuivant;
 			teteAchat->achatSuivant = courantAchat->achatSuivant;
@@ -131,33 +131,33 @@ struct Commande {
 		courantAchat = queueAchat = teteAchat;
 	}
 
-	// Return true si le pointeur courant est ‡ líintÈrieur de la liste
+	// Return true si le pointeur courant est √† l‚Äôint√©rieur de la liste
 	// Code provenant du cours
 	bool estDansListeAchat() const {
 		return (courantAchat != nullptr) && (courantAchat->achatSuivant != nullptr);
 	}
 
-	// Transporte le pointeur courant ‡ la tÍte de la liste
+	// Transporte le pointeur courant √† la t√™te de la liste
 	// Code provenant du cours
 	void fixerTeteAchat() {
 		courantAchat = teteAchat;
 	}
 
-	// Transporte le pointeur courant ‡ líAchat suivant dans la liste
+	// Transporte le pointeur courant √† l‚ÄôAchat suivant dans la liste
 	// Code provenant du cours
 	void achatSuivant() {
 		if (courantAchat != nullptr)
 			courantAchat = courantAchat->achatSuivant;
 	}
 
-	// Retourne líachat qui est actuellement pointÈ
+	// Retourne l‚Äôachat qui est actuellement point√©
 	// Code provenant du cours
 	Achat* achatCourant() const {
 		return courantAchat->achatSuivant;
 	}
 
 	/**
-	* Methode toString de Commande retournant toutes les informations díune commande :
+	* Methode toString de Commande retournant toutes les informations d‚Äôune commande :
 	*  - source
 	*  - destinataire
 	*  - toString() de chaque Achat
@@ -177,7 +177,7 @@ struct Commande {
 			resultat += achatCourant()->toString() + '\n';
 		}
 
-		// Ajout du caractËre de fin de Commande
+		// Ajout du caract√®re de fin de Commande
 		resultat += "&";
 		return resultat;
 	}
@@ -229,7 +229,7 @@ struct Client {
 	//Destructeur de Client 
 	~Client() {
 		// Destruction Commandes
-		// Tant que la tete níest pas vidÈe, on dÈtruit líÈlÈment suivant
+		// Tant que la tete n‚Äôest pas vid√©e, on d√©truit l‚Äô√©l√©ment suivant
 		while (teteCommande != nullptr) {
 			courantCommande = teteCommande;
 			teteCommande = teteCommande->commandeSuivante;
@@ -238,36 +238,36 @@ struct Client {
 	}
 
 	/**
-	* Inserer une Commande ‡ la fin de la liste des Commandes
+	* Inserer une Commande √† la fin de la liste des Commandes
 	* @param _nomCookie : le nom du cookie
-	* @param _quantiteCookie : la quantite achetÈe
+	* @param _quantiteCookie : la quantite achet√©e
 	*/
 	void insererCommande(string _source, string _destinataire) {
-		// Placer le pointeur courant avant cette commande nouvellement ajoutÈe
+		// Placer le pointeur courant avant cette commande nouvellement ajout√©e
 		courantCommande = queueCommande;
 
 		queueCommande = queueCommande->commandeSuivante = new Commande(_source, _destinataire);
 	}
 
-	// Supprimer une commande ‡ la position courante
+	// Supprimer une commande √† la position courante
 	// Code provenant du cours
 	void supprimerCommande() {
 		// Sauvegarde du pointeur suivant
 		Commande* courant = commandeCourante();
-		// Suppression de líÈlÈment
+		// Suppression de l‚Äô√©l√©ment
 		courantCommande->commandeSuivante = courant->commandeSuivante;
 
 		if (queueCommande == courant) {
-			// Cíest le dernier ÈlÈment supprimÈ, mise ‡ jour de queueCommande
+			// C‚Äôest le dernier √©l√©ment supprim√©, mise √† jour de queueCommande
 			queueCommande = courantCommande;
 		}
-		// Suppression du pointeur crÈÈ
+		// Suppression du pointeur cr√©√©
 		delete courant;		
 	}
 
-	// Methode permmante la suppression de toute les commandes díun client
+	// Methode permmante la suppression de toute les commandes d‚Äôun client
 	void viderListeCommandes() {
-		// On parcourt la liste et on supprime la commande courant ‡ chaque itÈration
+		// On parcourt la liste et on supprime la commande courant √† chaque it√©ration
 		while (teteCommande->commandeSuivante != nullptr) {
 			courantCommande = teteCommande->commandeSuivante;
 			courantCommande->viderListeAchats();
@@ -277,33 +277,33 @@ struct Client {
 		courantCommande = queueCommande = teteCommande;
 	}
 
-	// Transporte le pointeur courant ‡ la tÍte de la liste
+	// Transporte le pointeur courant √† la t√™te de la liste
 	// Code provenant du cours
 	void fixerTeteCommande() {
 		courantCommande = teteCommande;
 	}
 
-	// Return true si le pointeur courant est ‡ líintÈrieur de la liste
+	// Return true si le pointeur courant est √† l‚Äôint√©rieur de la liste
 	// Code provenant du cours
 	bool estDansListeCommande() const {
 		return (courantCommande != nullptr) && courantCommande->commandeSuivante != nullptr;
 	}
 
-	// Transporte le pointeur courant ‡ la commande suivant dans la liste
+	// Transporte le pointeur courant √† la commande suivant dans la liste
 	// Code provenant du cours
 	void commandeSuivante() {
 		if (courantCommande != nullptr)
 			courantCommande = courantCommande->commandeSuivante;
 	}
 
-	// Retourne la commande actuellement pointÈe
+	// Retourne la commande actuellement point√©e
 	// Code provenant du cours
 	Commande* commandeCourante() const {
 		return courantCommande->commandeSuivante;
 	}
 
 	/**
-	* Methode toString de Client retournant toutes les informations díun client :
+	* Methode toString de Client retournant toutes les informations d‚Äôun client :
 	*  - nom
 	*  - numero
 	*  - rue
@@ -345,7 +345,7 @@ struct Cookie {
 	// Structure Noeud-Cookie
 	Cookie* cookieSuivant;
 
-	// Constructeur par dÈfaut de Cookie
+	// Constructeur par d√©faut de Cookie
 	Cookie() {
 		this->nomCookie = "";
 		this->total = 0;
@@ -356,7 +356,7 @@ struct Cookie {
 	* Constructeur de Cookie
 	* @param _nom : le nom du cookie
 	* @param _total : le total du cookie
-	* @_suivant : le cookie Suivant dans la liste chaÓnÈe
+	* @_suivant : le cookie Suivant dans la liste cha√Æn√©e
 	*/
 	Cookie(string _nom, short int _total=0, Cookie* _suivant = nullptr) {
 		this->nomCookie = _nom;
@@ -372,13 +372,13 @@ struct Cookie {
 		return nomCookie + " " + to_string(total);
 	}
 	/**
-	* MÈthode permettant díaugmenter le Total
+	* M√©thode permettant d‚Äôaugmenter le Total
 	* @param _ajout : short int
 	*/
 	void AugmenterTotal(short int _ajout) { this->total += _ajout; }
 
 	/**
-	* Methode permettant de rÈduire le Total
+	* Methode permettant de r√©duire le Total
 	* @param _retrait : short int
 	*/
 	void ReduireTotal(short int _retrait) { this->total -= _retrait; }
@@ -387,7 +387,7 @@ struct Cookie {
 
 /**
 * Class BiscuitCo: objet principal du project 
-* Permettant líintÈgration et líutilisation des clients, commandes, achats et cookies
+* Permettant l‚Äôint√©gration et l‚Äôutilisation des clients, commandes, achats et cookies
 */
 class BiscuitCo
 {
@@ -404,41 +404,36 @@ public:
 	BiscuitCo();
 	~BiscuitCo();
 
+
 	// Clients
-	bool trouverClient(string);
+	bool trouverClient(string); // Trouver un client dans la liste client et retourne un false ou true
 	void fixerTeteClient();
 	bool estDansListeClient() const;
 	void clientSuivant();
 	Client* clientCourant() const;
-
-	void insererClient(string, short int, string);
-	void supprimerClient(string);
-	void supprimerClientDest(string);
-	
+	void insererClient(string, short int, string); // Ajouter un nouveau client √† la liste avec nom, num√©ro et rue
+	void supprimerClient(string); // Supprime le client et ses commandes sources 
+	void supprimerClientDest(string); // Supprime le client et ses commandes destinataire
 
 	// Commandes
-	void ajouterCommandeCookies(Commande*); // Ajouter la Commander passÈe en paramËtre ‡ la liste des commandes du client
-	void supprimerCommandeCookies(Commande*);
-	Commande* verifierClientsEtCreerCommande(string,string);
+	void ajouterCommandeCookies(Commande*); // Ajouter la Commande pass√© en param√®tre √† la liste des commandes du client
+	void supprimerCommandeCookies(Commande*); // R√©duire le nombre de cookie de chaque type de cookie
+	Commande* verifierClientsEtCreerCommande(string, string);
 
 
 	// Cookies
-	bool trouverCookie(string);
+	bool trouverCookie(string); // Trouver si le cookie existe, le pointeur cookiecourant pointera sur cookie
 	void fixerTeteCookie();
 	bool estDansListeCookie() const;
 	void cookieSuivant();
 	Cookie* cookieCourant() const;
-
-	void insererCookie(string, short int);
-	void supprimerCookie(string, short int);
-
-	void meilleurCookie();
-
+	void insererCookie(string, short int); // Permet d'augmenter le nombre de cookie d√©j√† command√© si le type de cookie existe, sinon on cr√©er un nouveau type
+	void supprimerCookie(string, short int); // Permet de supprimer le nombre de cookie dans un type
+	void meilleurCookie(); // Permet d'afficher le type de cookie avec le total le plus √©leve dans une commande
 	// Storage
-	void ouverture_clients(string);
-	void ouverture_commandes(string);
-	void ouverture_transactions(string);
-
-	void sauvegarde_clients(string);
-	void sauvegarde_commandes(string);
+	void ouverture_clients(string); // Permet la lecture des clients
+	void ouverture_commandes(string); // Permet la lecture des commandes
+	void ouverture_transactions(string); // Permet la lecture des transactions
+	void sauvegarde_clients(string); // Permet la sauvegarde des clients
+	void sauvegarde_commandes(string); // Permet la sauvegarde des commandes
 };
