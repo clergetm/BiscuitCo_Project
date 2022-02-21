@@ -407,22 +407,6 @@ public:
 
 	// Clients
 	bool trouverClient(string); // Trouver un client dans la liste client et retourne un false ou true
-<<<<<<< Updated upstream
-	void fixerTeteClient(); 
-	bool estDansListeClient() const;
-	void clientSuivant(); 
-	Client* clientCourant() const; 
-
-	void insererClient(string, short int, string); // Ajouter un nouveau client à la liste avec nom, numéro et rue
-	void supprimerClient(string); // Supprime le client et ses commandes sources 
-	void supprimerClientDest(string); // Supprime le client et ses commandes destinataire
-	
-
-	// Commandes
-	void ajouterCommandeCookies(Commande*); // Ajouter la Commande passée en paramètre à la liste des commandes du client
-	void supprimerCommandeCookies(Commande*); // Réduire le nombre de cookie de chaque type de cookie
-	Commande* verifierClientsEtCreerCommande(string,string);
-=======
 	void fixerTeteClient();
 	bool estDansListeClient() const;
 	void clientSuivant();
@@ -435,23 +419,10 @@ public:
 	void ajouterCommandeCookies(Commande*); // Ajouter la Commande passÃ© en paramÃ¨tre Ã  la liste des commandes du client
 	void supprimerCommandeCookies(Commande*); // RÃ©duire le nombre de cookie de chaque type de cookie
 	Commande* verifierClientsEtCreerCommande(string, string);
->>>>>>> Stashed changes
 
 
 	// Cookies
 	bool trouverCookie(string); // Trouver si le cookie existe, le pointeur cookiecourant pointera sur cookie
-<<<<<<< Updated upstream
-	void fixerTeteCookie(); 
-	bool estDansListeCookie() const;
-	void cookieSuivant();
-	Cookie* cookieCourant() const;
-
-	void insererCookie(string, short int); // Permet d'augmenter le nombre de cookie déjà commandé si le type de cookie existe, sinon on créer un nouveau type
-	void supprimerCookie(string, short int); // Permet de supprimer le nombre de cookie dans un type
-
-	void meilleurCookie(); // Permet d'afficher le type de cookie avec le total le plus élevé dans une commande
-
-=======
 	void fixerTeteCookie();
 	bool estDansListeCookie() const;
 	void cookieSuivant();
@@ -459,15 +430,10 @@ public:
 	void insererCookie(string, short int); // Permet d'augmenter le nombre de cookie dÃ©jÃ  commandÃ© si le type de cookie existe, sinon on crÃ©er un nouveau type
 	void supprimerCookie(string, short int); // Permet de supprimer le nombre de cookie dans un type
 	void meilleurCookie(); // Permet d'afficher le type de cookie avec le total le plus Ã©leve dans une commande
->>>>>>> Stashed changes
 	// Storage
 	void ouverture_clients(string); // Permet la lecture des clients
 	void ouverture_commandes(string); // Permet la lecture des commandes
 	void ouverture_transactions(string); // Permet la lecture des transactions
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 	void sauvegarde_clients(string); // Permet la sauvegarde des clients
 	void sauvegarde_commandes(string); // Permet la sauvegarde des commandes
 };
