@@ -1,7 +1,6 @@
 # BiscuitCo_Project
 Projet de c++ en structures de données sur l’entreprise BiscuitCo
 
-<<<<<<< Updated upstream
 GROUPE 5
 
 Mathys CLERGET
@@ -14,7 +13,7 @@ Lilou ALLAIN
 ALLL26520207
 
 
-Merci de nous avoir supporter :nerd:
+Merci de nous avoir supporter 🤓
 =======
 
 GROUPE 5
@@ -24,4 +23,3 @@ Guillaume URVOY
 URVG07119904
 Lilou ALLAIN
 ALLL26520207
->>>>>>> Stashed changes
